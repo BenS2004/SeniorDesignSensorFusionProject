@@ -1,0 +1,12 @@
+Command: ninja all
+CMake Error at /Users/benstevenson/.espressif/v6.1/esp-idf/tools/cmake/build.cmake:380 (message):
+  Failed to resolve component 'mcpwm_prelude.h' required by component 'main':
+  unknown name.
+Call Stack (most recent call first):
+  /Users/benstevenson/.espressif/v6.1/esp-idf/tools/cmake/build.cmake:429 (__build_resolve_and_add_req)
+  /Users/benstevenson/.espressif/v6.1/esp-idf/tools/cmake/build.cmake:784 (__build_expand_requirements)
+  /Users/benstevenson/.espressif/v6.1/esp-idf/tools/cmake/project.cmake:868 (idf_build_process)
+  CMakeLists.txt:8 (project)
+
+
+ninja: error: rebuilding 'build.ninja': subcommand failed
