@@ -1,0 +1,878 @@
+Command: ninja all
+[1/513] Generating project_elf_src_esp32.c
+[2/513] Preprocessing linker script /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_system/ld/esp32/memory.ld.in -> /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/build/esp-idf/esp_system/ld/memory.ld
+[3/513] Preprocessing linker script /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_system/ld/esp32/sections.ld.in -> /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/build/esp-idf/esp_system/ld/sections.ld.in
+[4/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/init.c.obj
+[5/513] Generating ../../partition_table/partition-table.bin
+Partition table binary generated. Contents:
+*******************************************************************************
+# ESP-IDF Partition Table
+# Name, Type, SubType, Offset, Size, Flags
+nvs,data,nvs,0x9000,24K,
+phy_init,data,phy,0xf000,4K,
+factory,app,factory,0x10000,1M,
+*******************************************************************************
+[6/513] Building C object esp-idf/pthread/CMakeFiles/__idf_pthread.dir/pthread_semaphore.c.obj
+[7/513] Building CXX object esp-idf/cxx/CMakeFiles/__idf_cxx.dir/cxx_init.cpp.obj
+[8/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/abort.c.obj
+[9/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/assert.c.obj
+[10/513] Building C object esp-idf/pthread/CMakeFiles/__idf_pthread.dir/pthread_local_storage.c.obj
+[11/513] Building CXX object esp-idf/cxx/CMakeFiles/__idf_cxx.dir/cxx_exception_stubs.cpp.obj
+[12/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/heap.c.obj
+[13/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/termios.c.obj
+[14/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/poll.c.obj
+[15/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/getentropy.c.obj
+[16/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/pthread.c.obj
+[17/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/random.c.obj
+[18/513] Building C object esp-idf/pthread/CMakeFiles/__idf_pthread.dir/pthread_rwlock.c.obj
+[19/513] Building C object esp-idf/pthread/CMakeFiles/__idf_pthread.dir/pthread_cond_var.c.obj
+[20/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/timekeeping.c.obj
+[21/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/sysconf.c.obj
+[22/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/realpath.c.obj
+[23/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/locks.c.obj
+[24/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/scandir.c.obj
+[25/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/syscalls.c.obj
+[26/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/reent_syscalls.c.obj
+[27/513] Building C object esp-idf/pthread/CMakeFiles/__idf_pthread.dir/pthread.c.obj
+[28/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/picolibc/rand.c.obj
+[29/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/port/esp_time_impl.c.obj
+[30/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/picolibc/picolibc_init.c.obj
+[31/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/picolibc/open_memstream.c.obj
+[32/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/picolibc/errno.c.obj
+[33/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/picolibc/bufio_setvbuf.c.obj
+[34/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/picolibc/getreent.c.obj
+[35/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/stdatomic.c.obj
+[36/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/picolibc/fopencookie.c.obj
+[37/513] Building C object esp-idf/freertos/CMakeFiles/__idf_freertos.dir/heap_idf.c.obj
+[38/513] Building C object esp-idf/esp_libc/CMakeFiles/__idf_esp_libc.dir/src/time.c.obj
+[39/513] Building C object esp-idf/freertos/CMakeFiles/__idf_freertos.dir/port_common.c.obj
+[40/513] Building C object esp-idf/freertos/CMakeFiles/__idf_freertos.dir/app_startup.c.obj
+[41/513] Building C object esp-idf/freertos/CMakeFiles/__idf_freertos.dir/port_systick.c.obj
+[42/513] Building C object esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/list.c.obj
+[43/513] Building ASM object esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/portable/xtensa/portasm.S.obj
+[44/513] Building C object esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/portable/xtensa/xtensa_init.c.obj
+[45/513] Building C object esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/event_groups.c.obj
+[46/513] Building C object esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/portable/xtensa/xtensa_overlay_os_hook.c.obj
+[47/513] Building C object esp-idf/freertos/CMakeFiles/__idf_freertos.dir/esp_additions/idf_additions_event_groups.c.obj
+[48/513] Building C object esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/timers.c.obj
+[49/513] Building C object esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/portable/xtensa/port.c.obj
+[50/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/esp_memory_utils.c.obj
+[51/513] Building C object esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/stream_buffer.c.obj
+[52/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32/esp_cpu_intr.c.obj
+[53/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/cpu.c.obj
+[54/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32/cpu_region_protect.c.obj
+[55/513] Building C object esp-idf/freertos/CMakeFiles/__idf_freertos.dir/esp_additions/idf_additions.c.obj
+[56/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/clk_ctrl_os.c.obj
+[57/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/revision.c.obj
+[58/513] Building C object esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/queue.c.obj
+[59/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/mac_addr.c.obj
+[60/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/esp_gpio_reserve.c.obj
+[61/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/hw_random.c.obj
+[62/513] Building CXX object esp-idf/cxx/CMakeFiles/__idf_cxx.dir/cxx_guards.cpp.obj
+[63/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/rtc_module.c.obj
+[64/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/regi2c_ctrl.c.obj
+[65/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sar_tsens_ctrl.c.obj
+[66/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sar_periph_ctrl_common.c.obj
+[67/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/io_mux.c.obj
+[68/513] Linking C static library esp-idf/cxx/libcxx.a
+[69/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32/io_mux.c.obj
+[70/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/esp_clk.c.obj
+[71/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/heap_align_hw.c.obj
+[72/513] Linking C static library esp-idf/pthread/libpthread.a
+[73/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/periph_ctrl.c.obj
+[74/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32/esp_clk_tree.c.obj
+[75/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/clk_utils.c.obj
+[76/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/spi_share_hw_ctrl.c.obj
+[77/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/intr_alloc.c.obj
+[78/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sleep_modem.c.obj
+[79/513] Linking C static library esp-idf/esp_libc/libesp_libc.a
+[80/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sleep_cache.c.obj
+[81/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sleep_mspi.c.obj
+[82/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/adc_share_hw_ctrl.c.obj
+[83/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sleep_console.c.obj
+[84/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sleep_usb.c.obj
+[85/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sleep_event.c.obj
+[86/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/mspi/mspi_timing_tuning/mspi_timing_tuning.c.obj
+[87/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sleep_uart.c.obj
+[88/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/spi_bus_lock.c.obj
+[89/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/rtc_wdt.c.obj
+[90/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/mspi/mspi_intr/mspi_intr.c.obj
+[91/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp_clk_tree_common.c.obj
+[92/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32/rtc_init.c.obj
+[93/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/power_supply/brownout.c.obj
+[94/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32/rtc_clk_init.c.obj
+[95/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sleep_gpio.c.obj
+[96/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32/chip_info.c.obj
+[97/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32/rtc_sleep.c.obj
+[98/513] Building C object esp-idf/freertos/CMakeFiles/__idf_freertos.dir/FreeRTOS-Kernel/tasks.c.obj
+[99/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sleep_wake_stub.c.obj
+[100/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32/cache_sram_mmu.c.obj
+[101/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32/rtc_time.c.obj
+[102/513] Building C object esp-idf/esp_hal_touch_sens/CMakeFiles/__idf_esp_hal_touch_sens.dir/esp32/touch_sensor_legacy_hal.c.obj
+[103/513] Building C object esp-idf/esp_hal_touch_sens/CMakeFiles/__idf_esp_hal_touch_sens.dir/touch_sensor_legacy_hal.c.obj
+[104/513] Building C object esp-idf/esp_hal_touch_sens/CMakeFiles/__idf_esp_hal_touch_sens.dir/touch_sens_hal.c.obj
+[105/513] Building C object esp-idf/esp_hal_touch_sens/CMakeFiles/__idf_esp_hal_touch_sens.dir/esp32/touch_sensor_periph.c.obj
+[106/513] Linking C static library esp-idf/freertos/libfreertos.a
+[107/513] Building C object esp-idf/esp_hal_pmu/CMakeFiles/__idf_esp_hal_pmu.dir/brownout_hal.c.obj
+[108/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/esp_clock_output.c.obj
+[109/513] Building C object esp-idf/esp_hal_gpio/CMakeFiles/__idf_esp_hal_gpio.dir/esp32/rtc_io_periph.c.obj
+[110/513] Building C object esp-idf/esp_hal_gpio/CMakeFiles/__idf_esp_hal_gpio.dir/sdm_hal.c.obj
+[111/513] Building C object esp-idf/esp_hal_gpio/CMakeFiles/__idf_esp_hal_gpio.dir/esp32/sdm_periph.c.obj
+[112/513] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/dport_access_common.c.obj
+[113/513] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/lldesc.c.obj
+[114/513] Building C object esp-idf/esp_hal_gpio/CMakeFiles/__idf_esp_hal_gpio.dir/gpio_hal.c.obj
+[115/513] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32/interrupts.c.obj
+[116/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32/sar_periph_ctrl.c.obj
+[117/513] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32/gpio_periph.c.obj
+[118/513] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32/mpi_periph.c.obj
+[119/513] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32/power_supply_periph.c.obj
+[120/513] Building C object esp-idf/soc/CMakeFiles/__idf_soc.dir/esp32/dport_access.c.obj
+[121/513] Building C object esp-idf/esp_hal_gpio/CMakeFiles/__idf_esp_hal_gpio.dir/rtc_io_hal.c.obj
+[122/513] Building C object esp-idf/heap/CMakeFiles/__idf_heap.dir/port/esp32/memory_layout.c.obj
+[123/513] Building C object esp-idf/heap/CMakeFiles/__idf_heap.dir/port/memory_layout_utils.c.obj
+[124/513] Building C object esp-idf/log/CMakeFiles/__idf_log.dir/src/os/log_timestamp.c.obj
+[125/513] Building C object esp-idf/heap/CMakeFiles/__idf_heap.dir/heap_caps_init.c.obj
+[126/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/port/esp32/rtc_clk.c.obj
+[127/513] Building C object esp-idf/log/CMakeFiles/__idf_log.dir/src/buffer/log_buffers.c.obj
+[128/513] Building C object esp-idf/log/CMakeFiles/__idf_log.dir/src/os/log_lock.c.obj
+[129/513] Building C object esp-idf/log/CMakeFiles/__idf_log.dir/src/log_timestamp_common.c.obj
+[130/513] Building C object esp-idf/heap/CMakeFiles/__idf_heap.dir/heap_caps_base.c.obj
+[131/513] Building C object esp-idf/log/CMakeFiles/__idf_log.dir/src/util.c.obj
+[132/513] Building C object esp-idf/heap/CMakeFiles/__idf_heap.dir/multi_heap.c.obj
+[133/513] Building C object esp-idf/log/CMakeFiles/__idf_log.dir/src/os/util.c.obj
+[134/513] Building C object esp-idf/log/CMakeFiles/__idf_log.dir/src/log_format_text.c.obj
+[135/513] Building C object esp-idf/log/CMakeFiles/__idf_log.dir/src/log_print.c.obj
+[136/513] Building C object esp-idf/heap/CMakeFiles/__idf_heap.dir/heap_caps.c.obj
+[137/513] Building C object esp-idf/log/CMakeFiles/__idf_log.dir/src/log_level/log_level.c.obj
+[138/513] Building C object esp-idf/log/CMakeFiles/__idf_log.dir/src/os/log_write.c.obj
+[139/513] Building C object esp-idf/log/CMakeFiles/__idf_log.dir/src/log_level/tag_log_level/tag_log_level.c.obj
+[140/513] Building C object esp-idf/log/CMakeFiles/__idf_log.dir/src/log.c.obj
+[141/513] Building C object esp-idf/hal/CMakeFiles/__idf_hal.dir/hal_utils.c.obj
+[142/513] Building C object esp-idf/log/CMakeFiles/__idf_log.dir/src/log_level/tag_log_level/linked_list/log_linked_list.c.obj
+[143/513] Building C object esp-idf/log/CMakeFiles/__idf_log.dir/src/log_level/tag_log_level/cache/log_binary_heap.c.obj
+[144/513] Building C object esp-idf/hal/CMakeFiles/__idf_hal.dir/color_hal.c.obj
+[145/513] Building C object esp-idf/hal/CMakeFiles/__idf_hal.dir/efuse_hal.c.obj
+[146/513] Building C object esp-idf/hal/CMakeFiles/__idf_hal.dir/esp32/efuse_hal.c.obj
+[147/513] Building C object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_crc.c.obj
+[148/513] Building C object esp-idf/hal/CMakeFiles/__idf_hal.dir/esp32/cache_hal_esp32.c.obj
+[149/513] Building C object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_sys.c.obj
+[150/513] Building C object esp-idf/esp_hw_support/CMakeFiles/__idf_esp_hw_support.dir/sleep_modes.c.obj
+[151/513] Building C object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_efuse.c.obj
+[152/513] Building ASM object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_longjmp.S.obj
+[153/513] Building C object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_gpio.c.obj
+[154/513] Building C object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_serial_output.c.obj
+[155/513] Building C object esp-idf/esp_common/CMakeFiles/__idf_esp_common.dir/src/esp_err_to_name.c.obj
+[156/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/esp_err.c.obj
+[157/513] Building C object esp-idf/hal/CMakeFiles/__idf_hal.dir/mmu_hal.c.obj
+[158/513] Building C object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_print.c.obj
+[159/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/crosscore_int.c.obj
+[160/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/freertos_hooks.c.obj
+[161/513] Linking C static library esp-idf/esp_hw_support/libesp_hw_support.a
+[162/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/esp_ipc.c.obj
+[163/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/startup.c.obj
+[164/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/stack_check.c.obj
+[165/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/esp_system.c.obj
+[166/513] Building C object esp-idf/esp_rom/CMakeFiles/__idf_esp_rom.dir/patches/esp_rom_spiflash.c.obj
+[167/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/panic.c.obj
+[168/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/system_time.c.obj
+[169/513] Linking C static library esp-idf/esp_hal_touch_sens/libesp_hal_touch_sens.a
+[170/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/startup_funcs.c.obj
+[171/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/ubsan.c.obj
+[172/513] Linking C static library esp-idf/esp_hal_pmu/libesp_hal_pmu.a
+[173/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/image_process.c.obj
+[174/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/int_wdt.c.obj
+[175/513] Linking C static library esp-idf/esp_hal_gpio/libesp_hal_gpio.a
+[176/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/panic_handler.c.obj
+[177/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/task_wdt/task_wdt_impl_timergroup.c.obj
+[178/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/esp_system_chip.c.obj
+[179/513] Building ASM object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/arch/xtensa/esp_ipc_isr_handler.S.obj
+[180/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/arch/xtensa/esp_ipc_isr_port.c.obj
+[181/513] Linking C static library esp-idf/soc/libsoc.a
+[182/513] Building ASM object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/arch/xtensa/panic_handler_asm.S.obj
+[183/513] Building ASM object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/arch/xtensa/esp_ipc_isr_routines.S.obj
+[184/513] Building ASM object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/arch/xtensa/expression_with_stack_asm.S.obj
+[185/513] Building ASM object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/arch/xtensa/debug_helpers_asm.S.obj
+[186/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/arch/xtensa/expression_with_stack.c.obj
+[187/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/arch/xtensa/debug_stubs.c.obj
+[188/513] Building ASM object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/soc/esp32/highint_hdl.S.obj
+[189/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/esp_ipc_isr.c.obj
+[190/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/arch/xtensa/panic_arch.c.obj
+[191/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/task_wdt/task_wdt.c.obj
+[192/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/arch/xtensa/trax.c.obj
+[193/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/arch/xtensa/debug_helpers.c.obj
+[194/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/flash_brownout_hook.c.obj
+[195/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/soc/esp32/reset_reason.c.obj
+[196/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/cpu_start.c.obj
+[197/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_chip_issi.c.obj
+[198/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_chip_drivers.c.obj
+[199/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/soc/esp32/clk.c.obj
+[200/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/soc/esp32/cache_err_int.c.obj
+[201/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_chip_gd.c.obj
+[202/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_chip_mxic.c.obj
+[203/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_chip_boya.c.obj
+[204/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_chip_th.c.obj
+[205/513] Building C object esp-idf/heap/CMakeFiles/__idf_heap.dir/tlsf/tlsf.c.obj
+[206/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_chip_winbond.c.obj
+[207/513] Building C object esp-idf/esp_system/CMakeFiles/__idf_esp_system.dir/port/soc/esp32/system_internal.c.obj
+[208/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/memspi_host_driver.c.obj
+[209/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_blockdev.c.obj
+[210/513] Linking C static library esp-idf/heap/libheap.a
+[211/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_wrap.c.obj
+[212/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/cache_utils.c.obj
+[213/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_chip_mxic_opi.c.obj
+[214/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/flash_ops.c.obj
+[215/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_chip_generic.c.obj
+[216/513] Linking C static library esp-idf/log/liblog.a
+[217/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_os_func_noos.c.obj
+[218/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/spi_flash_os_func_app.c.obj
+[219/513] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_mem.c.obj
+[220/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/flash_mmap.c.obj
+[221/513] Linking C static library esp-idf/hal/libhal.a
+[222/513] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_efuse.c.obj
+[223/513] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_clock_init.c.obj
+[224/513] Linking C static library esp-idf/esp_rom/libesp_rom.a
+[225/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/esp_flash_spi_init.c.obj
+[226/513] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_random.c.obj
+[227/513] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_common.c.obj
+[228/513] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/flash_encrypt.c.obj
+[229/513] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/secure_boot.c.obj
+[230/513] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_common_loader.c.obj
+[231/513] Linking C static library esp-idf/esp_common/libesp_common.a
+[232/513] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/flash_partitions.c.obj
+[233/513] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/bootloader_flash/src/flash_qio_mode.c.obj
+[234/513] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_random_esp32.c.obj
+[235/513] Linking C static library esp-idf/esp_system/libesp_system.a
+[236/513] Building C object esp-idf/esp_hal_ana_conv/CMakeFiles/__idf_esp_hal_ana_conv.dir/esp32/adc_periph.c.obj
+[237/513] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_sha.c.obj
+[238/513] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/esp32/secure_boot_secure_features.c.obj
+[239/513] Building C object esp-idf/esp_hal_ana_conv/CMakeFiles/__idf_esp_hal_ana_conv.dir/adc_hal_common.c.obj
+[240/513] Building C object esp-idf/esp_hal_ana_conv/CMakeFiles/__idf_esp_hal_ana_conv.dir/esp32/dac_periph.c.obj
+[241/513] Building C object esp-idf/spi_flash/CMakeFiles/__idf_spi_flash.dir/esp_flash_api.c.obj
+[242/513] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/bootloader_flash/src/bootloader_flash.c.obj
+[243/513] Building C object esp-idf/esp_hal_wdt/CMakeFiles/__idf_esp_hal_wdt.dir/esp32/mwdt_periph.c.obj
+[244/513] Building C object esp-idf/esp_hal_ana_conv/CMakeFiles/__idf_esp_hal_ana_conv.dir/adc_oneshot_hal.c.obj
+[245/513] Building C object esp-idf/esp_hal_i2s/CMakeFiles/__idf_esp_hal_i2s.dir/esp32/i2s_periph.c.obj
+[246/513] Building C object esp-idf/esp_hal_i2s/CMakeFiles/__idf_esp_hal_i2s.dir/i2s_hal.c.obj
+[247/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/everest/CMakeFiles/everest.dir/library/Hacl_Curve25519_joined.c.obj
+[248/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/everest/CMakeFiles/everest.dir/library/x25519.c.obj
+[249/513] Linking C static library esp-idf/spi_flash/libspi_flash.a
+[250/513] Building C object esp-idf/esp_hal_wdt/CMakeFiles/__idf_esp_hal_wdt.dir/wdt_hal_iram.c.obj
+[251/513] Building C object esp-idf/esp_hal_ana_conv/CMakeFiles/__idf_esp_hal_ana_conv.dir/adc_hal.c.obj
+[252/513] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/bootloader_flash/src/bootloader_flash_config_esp32.c.obj
+[253/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/p256-m/CMakeFiles/p256-m.dir/p256-m_driver_entrypoints.c.obj
+[254/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/aria.c.obj
+[255/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/p256-m/CMakeFiles/p256-m.dir/p256-m/p256-m.c.obj
+[256/513] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/esp_image_format.c.obj
+[257/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/aesce.c.obj
+[258/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/aesni.c.obj
+[259/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/bignum_mod.c.obj
+[260/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/bignum_mod_raw.c.obj
+[261/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/camellia.c.obj
+[262/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/block_cipher.c.obj
+[263/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/chacha20.c.obj
+[264/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/chacha20_neon.c.obj
+[265/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/chachapoly.c.obj
+[266/513] Building C object esp-idf/bootloader_support/CMakeFiles/__idf_bootloader_support.dir/src/bootloader_utility.c.obj
+[267/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/cipher_wrap.c.obj
+[268/513] Linking C static library esp-idf/bootloader_support/libbootloader_support.a
+[269/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/ecjpake.c.obj
+[270/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/ecdsa.c.obj
+[271/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/ccm.c.obj
+[272/513] Linking C static library esp-idf/esp_hal_ana_conv/libesp_hal_ana_conv.a
+[273/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/ctr_drbg.c.obj
+[274/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/cmac.c.obj
+[275/513] Linking C static library esp-idf/esp_hal_i2s/libesp_hal_i2s.a
+[276/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/ecp_curves_new.c.obj
+[277/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/entropy.c.obj
+[278/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/entropy_poll.c.obj
+[279/513] Linking C static library esp-idf/esp_hal_wdt/libesp_hal_wdt.a
+[280/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/md5.c.obj
+[281/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/cipher.c.obj
+[282/513] Linking CXX static library esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/everest/libeverest.a
+[283/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/poly1305.c.obj
+[284/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/hmac_drbg.c.obj
+[285/513] Linking CXX static library esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/p256-m/libp256-m.a
+[286/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/bignum_core.c.obj
+[287/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/psa_crypto_aead.c.obj
+[288/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/psa_crypto_ffdh.c.obj
+[289/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/psa_crypto_hash.c.obj
+[290/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/psa_crypto_ecp.c.obj
+[291/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/psa_crypto_cipher.c.obj
+[292/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/psa_crypto_mac.c.obj
+[293/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/psa_crypto_pake.c.obj
+[294/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/ripemd160.c.obj
+[295/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/gcm.c.obj
+[296/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/psa_crypto_xof.c.obj
+[297/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/psa_util_internal.c.obj
+[298/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/aes.c.obj
+[299/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/sha1.c.obj
+[300/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/sha512.c.obj
+[301/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/rsa_alt_helpers.c.obj
+[302/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/pqcp/CMakeFiles/pqcp.dir/src/psa_crypto_mldsa.c.obj
+[303/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/pqcp/CMakeFiles/pqcp.dir/src/wrap_mldsa_native.c.obj
+[304/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/extras/CMakeFiles/extras.dir/lmots.c.obj
+[305/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/ecp_curves.c.obj
+[306/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/extras/CMakeFiles/extras.dir/lms.c.obj
+[307/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/psa_crypto_rsa.c.obj
+[308/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/extras/CMakeFiles/extras.dir/nist_kw.c.obj
+[309/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/sha3.c.obj
+[310/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/extras/CMakeFiles/extras.dir/pk_ecc.c.obj
+[311/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/extras/CMakeFiles/extras.dir/pk_rsa.c.obj
+[312/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/extras/CMakeFiles/extras.dir/md.c.obj
+[313/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/platform/CMakeFiles/platform.dir/memory_buffer_alloc.c.obj
+[314/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/extras/CMakeFiles/extras.dir/pk_wrap.c.obj
+[315/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/bignum.c.obj
+[316/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/sha256.c.obj
+[317/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/platform/CMakeFiles/platform.dir/platform.c.obj
+[318/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/platform/CMakeFiles/platform.dir/threading.c.obj
+[319/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/platform/CMakeFiles/platform.dir/platform_util.c.obj
+[320/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/utilities/CMakeFiles/utilities.dir/constant_time.c.obj
+[321/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/utilities/CMakeFiles/utilities.dir/asn1parse.c.obj
+[322/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/utilities/CMakeFiles/utilities.dir/base64.c.obj
+[323/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/extras/CMakeFiles/extras.dir/pkwrite.c.obj
+[324/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/extras/CMakeFiles/extras.dir/pkparse.c.obj
+[325/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/utilities/CMakeFiles/utilities.dir/asn1write.c.obj
+[326/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/utilities/CMakeFiles/utilities.dir/oid.c.obj
+[327/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/psa_crypto_client.c.obj
+[328/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/psa_crypto_random.c.obj
+[329/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/psa_crypto_storage.c.obj
+[330/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/psa_its_file.c.obj
+[331/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/utilities/CMakeFiles/utilities.dir/pkcs5.c.obj
+[332/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/utilities/CMakeFiles/utilities.dir/pem.c.obj
+[333/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/tf_psa_crypto_version.c.obj
+[334/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/psa_util.c.obj
+[335/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/tf_psa_crypto_config.c.obj
+[336/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/psa_crypto_driver_wrappers_no_static.c.obj
+[337/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/ecp.c.obj
+[338/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/esp_hardware.c.obj
+[339/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/aes/esp_aes_common.c.obj
+[340/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/extras/CMakeFiles/extras.dir/pk.c.obj
+[341/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/aes/esp_aes_xts.c.obj
+[342/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/psa_crypto_slot_management.c.obj
+[343/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/sha/esp_sha.c.obj
+[344/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/psa_driver/esp_mac/psa_crypto_driver_esp_hmac_transparent.c.obj
+[345/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/psa_driver/esp_sha/psa_crypto_driver_esp_sha.c.obj
+[346/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/aes/esp_aes.c.obj
+[347/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/CMakeFiles/builtin.dir/src/rsa.c.obj
+[348/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/psa_driver/esp_md/psa_crypto_driver_esp_md5.c.obj
+[349/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/sha/parallel_engine/sha.c.obj
+[350/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/bignum/bignum_alt.c.obj
+[351/513] Linking CXX static library esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/builtin/libmbed-builtin.a
+[352/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/aes/esp_aes_gcm.c.obj
+[353/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/psa_driver/esp_sha/parallel_engine/psa_crypto_driver_esp_sha256.c.obj
+[354/513] Linking CXX static library esp-idf/mbedtls/mbedtls/tf-psa-crypto/drivers/pqcp/libpqcp.a
+[355/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/bignum/esp_bignum.c.obj
+[356/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/psa_driver/esp_sha/parallel_engine/psa_crypto_driver_esp_sha512.c.obj
+[357/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/psa_driver/esp_mac/psa_crypto_driver_esp_cmac.c.obj
+[358/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/psa_driver/esp_aes/psa_crypto_driver_esp_aes_gcm.c.obj
+[359/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/debug.c.obj
+[360/513] Linking CXX static library esp-idf/mbedtls/mbedtls/tf-psa-crypto/extras/libextras.a
+[361/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/psa_driver/esp_aes/psa_crypto_driver_esp_aes.c.obj
+[362/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/mps_reader.c.obj
+[363/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/mps_trace.c.obj
+[364/513] Linking CXX static library esp-idf/mbedtls/mbedtls/tf-psa-crypto/platform/libplatform.a
+[365/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_cookie.c.obj
+[366/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_ciphersuites.c.obj
+[367/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_debug_helpers_generated.c.obj
+[368/513] Linking CXX static library esp-idf/mbedtls/mbedtls/tf-psa-crypto/utilities/libutilities.a
+[369/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_cache.c.obj
+[370/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_tls13_keys.c.obj
+[371/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/psa_driver/esp_sha/parallel_engine/psa_crypto_driver_esp_sha1.c.obj
+[372/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_tls13_server.c.obj
+[373/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_ticket.c.obj
+[374/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_client.c.obj
+[375/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/version_features.c.obj
+[376/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_tls13_client.c.obj
+[377/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_tls13_generic.c.obj
+[378/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/timing.c.obj
+[379/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/version.c.obj
+[380/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/esp_platform_time.c.obj
+[381/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/mbedtls_debug.c.obj
+[382/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/esp_timing.c.obj
+[383/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/mbedtls_config.c.obj
+[384/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls/port/esp_psa_crypto_init.c.obj
+[385/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/x509_create.c.obj
+[386/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/error.c.obj
+[387/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/pkcs7.c.obj
+[388/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/x509_crl.c.obj
+[389/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_tls12_client.c.obj
+[390/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/x509write.c.obj
+[391/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/x509_oid.c.obj
+[392/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/x509write_crt.c.obj
+[393/513] Creating directories for 'bootloader'
+[394/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/x509write_csr.c.obj
+[395/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/x509_csr.c.obj
+[396/513] No download step for 'bootloader'
+[397/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_tls12_server.c.obj
+[398/513] No update step for 'bootloader'
+[399/513] No patch step for 'bootloader'
+[400/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_msg.c.obj
+[401/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/x509.c.obj
+[402/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedx509.dir/x509_crt.c.obj
+[403/513] Building C object esp-idf/mbedtls/mbedtls/library/CMakeFiles/mbedtls.dir/ssl_tls.c.obj
+[404/513] Building C object esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/CMakeFiles/tfpsacrypto.dir/psa_crypto.c.obj
+[405/513] Linking CXX static library esp-idf/mbedtls/mbedtls/tf-psa-crypto/core/libtfpsacrypto.a
+[406/513] Linking CXX static library esp-idf/mbedtls/mbedtls/library/libmbedtls.a
+[407/513] Linking CXX static library esp-idf/mbedtls/mbedtls/library/libmbedx509.a
+[408/513] Generating x509_crt_bundle
+[409/513] Generating ../../x509_crt_bundle.S
+[410/513] Building C object esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/port/esp32/ext_mem_layout.c.obj
+[411/513] Building C object esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/port/esp_mem.c.obj
+[412/513] Building ASM object esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/__/__/x509_crt_bundle.S.obj
+[413/513] Building C object esp-idf/esp_driver_dma/CMakeFiles/__idf_esp_driver_dma.dir/src/esp_dma_utils.c.obj
+[414/513] Building C object esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/port/psa_crypto_storage/esp_psa_key_file.c.obj
+[415/513] Building C object esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/cache_esp32.c.obj
+[416/513] Building C object esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/pm_locks.c.obj
+[417/513] Building C object esp-idf/esp_driver_dma/CMakeFiles/__idf_esp_driver_dma.dir/src/gdma_link.c.obj
+[418/513] Building C object esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/esp_cache_utils.c.obj
+[419/513] Building C object esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/pm_trace.c.obj
+[420/513] Building C object esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/esp_cache_msync.c.obj
+[421/513] Building C object esp-idf/esp_hal_uart/CMakeFiles/__idf_esp_hal_uart.dir/esp32/uart_periph.c.obj
+[422/513] Building C object esp-idf/esp_hal_uart/CMakeFiles/__idf_esp_hal_uart.dir/uart_hal_iram.c.obj
+[423/513] Building C object esp-idf/esp_hal_uart/CMakeFiles/__idf_esp_hal_uart.dir/uart_hal.c.obj
+[424/513] Building C object esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/src/gpio_glitch_filter_ops.c.obj
+[425/513] Building C object esp-idf/esp_security/CMakeFiles/__idf_esp_security.dir/src/esp_crypto_lock.c.obj
+[426/513] Building C object esp-idf/esp_security/CMakeFiles/__idf_esp_security.dir/src/init.c.obj
+[427/513] Building C object esp-idf/esp_security/CMakeFiles/__idf_esp_security.dir/src/esp32/esp_crypto_clk.c.obj
+[428/513] Building C object esp-idf/esp_security/CMakeFiles/__idf_esp_security.dir/src/esp_crypto_periph_clk.c.obj
+[429/513] Building C object esp-idf/mbedtls/CMakeFiles/__idf_mbedtls.dir/esp_crt_bundle/esp_crt_bundle.c.obj
+[430/513] Building C object esp-idf/esp_pm/CMakeFiles/__idf_esp_pm.dir/pm_impl.c.obj
+[431/513] Building C object esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/src/esp_timer_init.c.obj
+[432/513] Linking C static library esp-idf/mbedtls/libmbedtls.a
+[433/513] Building C object esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/src/system_time.c.obj
+[434/513] Building C object esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/src/ets_timer_legacy.c.obj
+[435/513] Linking C static library esp-idf/esp_driver_dma/libesp_driver_dma.a
+[436/513] Building C object esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/src/esp_timer_impl_common.c.obj
+[437/513] Building C object esp-idf/esp_mm/CMakeFiles/__idf_esp_mm.dir/esp_mmu_map.c.obj
+[438/513] Building C object esp-idf/esp_hal_timg/CMakeFiles/__idf_esp_hal_timg.dir/timer_hal.c.obj
+[439/513] Building C object esp-idf/esp_hal_timg/CMakeFiles/__idf_esp_hal_timg.dir/esp32/timer_periph.c.obj
+[440/513] Building C object esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32/esp_efuse_table.c.obj
+[441/513] Building C object esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32/esp_efuse_fields.c.obj
+[442/513] Linking C static library esp-idf/esp_mm/libesp_mm.a
+[443/513] Building C object esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/src/rtc_io.c.obj
+[444/513] Building C object esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/src/esp_timer_impl_lac.c.obj
+[445/513] Building C object esp-idf/efuse/CMakeFiles/__idf_efuse.dir/esp32/esp_efuse_utility.c.obj
+[446/513] Linking C static library esp-idf/esp_pm/libesp_pm.a
+[447/513] Building C object esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/esp_efuse_fields.c.obj
+[448/513] Building C object esp-idf/esp_timer/CMakeFiles/__idf_esp_timer.dir/src/esp_timer.c.obj
+[449/513] Linking C static library esp-idf/esp_hal_uart/libesp_hal_uart.a
+[450/513] Building C object esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/efuse_controller/keys/without_key_purposes/three_key_blocks/esp_efuse_api_key.c.obj
+[451/513] Building C object esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/esp_efuse_startup.c.obj
+[452/513] Building C object esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/partition_target.c.obj
+[453/513] Building C object esp-idf/esp_bootloader_format/CMakeFiles/__idf_esp_bootloader_format.dir/esp_bootloader_desc.c.obj
+[454/513] Building C object esp-idf/esp_app_format/CMakeFiles/__idf_esp_app_format.dir/esp_app_desc.c.obj
+[455/513] Building C object esp-idf/esp_hal_security/CMakeFiles/__idf_esp_hal_security.dir/sha_hal.c.obj
+[456/513] Building C object esp-idf/esp_hal_security/CMakeFiles/__idf_esp_hal_security.dir/mpi_hal.c.obj
+[457/513] Building C object esp-idf/esp_hal_security/CMakeFiles/__idf_esp_hal_security.dir/aes_hal.c.obj
+[458/513] Building C object esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/esp_efuse_utility.c.obj
+[459/513] Building C object esp-idf/efuse/CMakeFiles/__idf_efuse.dir/src/esp_efuse_api.c.obj
+[460/513] Building C object esp-idf/esp_hal_security/CMakeFiles/__idf_esp_hal_security.dir/mpu_hal.c.obj
+[461/513] Building C object esp-idf/esp_hal_mspi/CMakeFiles/__idf_esp_hal_mspi.dir/spi_flash_encrypt_hal_iram.c.obj
+[462/513] Building C object esp-idf/esp_hal_mspi/CMakeFiles/__idf_esp_hal_mspi.dir/esp32/mspi_periph.c.obj
+[463/513] Building C object esp-idf/esp_hal_mspi/CMakeFiles/__idf_esp_hal_mspi.dir/spi_flash_hal.c.obj
+[464/513] Building C object esp-idf/esp_hal_gpspi/CMakeFiles/__idf_esp_hal_gpspi.dir/esp32/spi_periph.c.obj
+[465/513] Building C object esp-idf/esp_hal_clock/CMakeFiles/__idf_esp_hal_clock.dir/esp32/clk_tree_hal.c.obj
+[466/513] Building C object esp-idf/esp_hal_gpspi/CMakeFiles/__idf_esp_hal_gpspi.dir/spi_slave_hal.c.obj
+[467/513] Building C object esp-idf/esp_hal_gpspi/CMakeFiles/__idf_esp_hal_gpspi.dir/spi_hal.c.obj
+[468/513] Building C object esp-idf/esp_partition/CMakeFiles/__idf_esp_partition.dir/partition.c.obj
+[469/513] Building C object esp-idf/esp_stdio/CMakeFiles/__idf_esp_stdio.dir/stdio_simple.c.obj
+[470/513] Building C object esp-idf/esp_stdio/CMakeFiles/__idf_esp_stdio.dir/stdio_port.c.obj
+[471/513] Building C object esp-idf/esp_hal_gpspi/CMakeFiles/__idf_esp_hal_gpspi.dir/spi_slave_hal_iram.c.obj
+[472/513] Building C object esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/eri.c.obj
+[473/513] Building C object esp-idf/esp_hal_mspi/CMakeFiles/__idf_esp_hal_mspi.dir/spi_flash_hal_iram.c.obj
+[474/513] Building C object esp-idf/esp_stdio/CMakeFiles/__idf_esp_stdio.dir/stdio_syscalls_simple.c.obj
+[475/513] Building ASM object esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/xtensa_intr_asm.S.obj
+[476/513] Building ASM object esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/xtensa_context.S.obj
+[477/513] Building C object esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/xt_trax.c.obj
+[478/513] Building C object esp-idf/esp_hal_gpspi/CMakeFiles/__idf_esp_hal_gpspi.dir/spi_hal_iram.c.obj
+[479/513] Building ASM object esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/xtensa_vectors.S.obj
+[480/513] Building C object esp-idf/esp_hal_pcnt/CMakeFiles/__idf_esp_hal_pcnt.dir/pcnt_hal.c.obj
+[481/513] Building C object esp-idf/xtensa/CMakeFiles/__idf_xtensa.dir/xtensa_intr.c.obj
+[482/513] Building C object esp-idf/esp_hal_pcnt/CMakeFiles/__idf_esp_hal_pcnt.dir/esp32/pcnt_periph.c.obj
+[483/513] Building C object esp-idf/app_update/CMakeFiles/__idf_app_update.dir/esp_ota_ops.c.obj
+[484/513] Building C object esp-idf/esp_driver_gpio/CMakeFiles/__idf_esp_driver_gpio.dir/src/gpio.c.obj
+[485/513] Building C object esp-idf/esp_driver_pcnt/CMakeFiles/__idf_esp_driver_pcnt.dir/src/pulse_cnt.c.obj
+[486/513] Linking C static library esp-idf/esp_driver_gpio/libesp_driver_gpio.a
+[487/513] Linking C static library esp-idf/esp_security/libesp_security.a
+[488/513] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ESP_PWM.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/ESP_PWM.c.obj 
+/Users/benstevenson/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc -DESP_PLATFORM -DIDF_VER=\"v6.1\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -I/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/build/config -I/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_libc/platform_include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/config/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/config/include/freertos -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/config/xtensa/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/esp_additions/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/include/soc -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/ldo/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/debug_probe/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/etm/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/mspi/mspi_timing_tuning/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/mspi/mspi_timing_tuning/tuning_scheme_impl/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/mspi/mspi_intr/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/power_supply/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/modem/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/port/esp32/. -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/port/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/heap/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/heap/tlsf -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/log/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/soc/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/soc/esp32 -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/soc/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/soc/esp32/register -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/hal/platform_port/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/hal/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/hal/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_rom/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_rom/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_rom/esp32/include/esp32 -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_rom/esp32 -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_system/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_system/port/soc -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_system/port/include/private -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_stdio/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/xtensa/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/xtensa/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/xtensa/deprecated_include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_gpio/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_gpio/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_usb/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_pmu/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_pmu/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_regi2c/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_regi2c/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_uart/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_uart/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_ana_conv/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_ana_conv/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_dma/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_i2s/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_i2s/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/spi_flash/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_mspi/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_mspi/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_gpspi/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_gpspi/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_clock/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_clock/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_blockdev/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_timer/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_driver_pcnt/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_pcnt/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_pcnt/esp32/include @"/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/build/toolchain/cflags" -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-error=extra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fno-shrink-wrap -fmacro-prefix-map=/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM=. -fmacro-prefix-map=/Users/benstevenson/.espressif/v6.1/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu23 -Wno-old-style-declaration -fzero-init-padding-bits=all -fno-malloc-dce -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/ESP_PWM.c.obj -MF esp-idf/main/CMakeFiles/__idf_main.dir/ESP_PWM.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/ESP_PWM.c.obj -c /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c: In function 'main':
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:17:5: error: unknown type name 'mcpwm_timer_handle_t'
+   17 |     mcpwm_timer_handle_t timer = NULL;
+      |     ^~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:17:34: error: initialization of 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   17 |     mcpwm_timer_handle_t timer = NULL;
+      |                                  ^~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:19:5: error: unknown type name 'mcpwm_timer_config_t'
+   19 |     mcpwm_timer_config_t timer_config = {
+      |     ^~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:20:9: error: field name not in record or union initializer
+   20 |         .group_id = 0,
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:20:9: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:21:9: error: field name not in record or union initializer
+   21 |         .clk_src = MCPWM_TIMER_CLK_SRC_DEFAULT, // Choose your source clock here
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:21:9: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:21:20: error: 'MCPWM_TIMER_CLK_SRC_DEFAULT' undeclared (first use in this function)
+   21 |         .clk_src = MCPWM_TIMER_CLK_SRC_DEFAULT, // Choose your source clock here
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:21:20: note: each undeclared identifier is reported only once for each function it appears in
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:21:20: error: excess elements in scalar initializer [-Werror]
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:21:20: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:22:9: error: field name not in record or union initializer
+   22 |         .resolution_hz = 100000,               // e.g., 100 kHz resolution (1 tick = 1 µs)
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:22:9: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:22:26: error: excess elements in scalar initializer [-Werror]
+   22 |         .resolution_hz = 100000,               // e.g., 100 kHz resolution (1 tick = 1 µs)
+      |                          ^~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:22:26: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:23:9: error: field name not in record or union initializer
+   23 |         .period_ticks = 100,                     // e.g., 100 ticks period -> 1 kHz frequency
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:23:9: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:23:25: error: excess elements in scalar initializer [-Werror]
+   23 |         .period_ticks = 100,                     // e.g., 100 ticks period -> 1 kHz frequency
+      |                         ^~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:23:25: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:24:9: error: field name not in record or union initializer
+   24 |         .count_mode = MCPWM_TIMER_COUNT_MODE_UP, // Count up for PWM
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:24:9: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:24:23: error: 'MCPWM_TIMER_COUNT_MODE_UP' undeclared (first use in this function)
+   24 |         .count_mode = MCPWM_TIMER_COUNT_MODE_UP, // Count up for PWM
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:24:23: error: excess elements in scalar initializer [-Werror]
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:24:23: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:25:9: error: field name not in record or union initializer
+   25 |         .intr_priority = 0,                        // Interrupt priority
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:25:9: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:25:26: error: excess elements in scalar initializer [-Werror]
+   25 |         .intr_priority = 0,                        // Interrupt priority
+      |                          ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:25:26: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:26:9: error: field name not in record or union initializer
+   26 |         .flags = 0,                                // No special flags
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:26:9: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:26:18: error: excess elements in scalar initializer [-Werror]
+   26 |         .flags = 0,                                // No special flags
+      |                  ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:26:18: note: (near initialization for 'timer_config')
+In file included from /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h:12,
+                 from /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/include/esp_cpu.h:21,
+                 from /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/include/spinlock.h:11,
+                 from /Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:48,
+                 from /Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/portable.h:57,
+                 from /Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:69,
+                 from /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:5:
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:29:21: error: implicit declaration of function 'mcpwm_new_timer' [-Wimplicit-function-declaration]
+   29 |     ESP_ERROR_CHECK(mcpwm_new_timer(&timer_config, &timer));
+      |                     ^~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:32:5: error: unknown type name 'mcpwm_operator_handle_t'
+   32 |     mcpwm_operator_handle_t op = NULL;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:32:34: error: initialization of 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   32 |     mcpwm_operator_handle_t op = NULL;
+      |                                  ^~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:33:5: error: unknown type name 'mcpwm_operator_config_t'
+   33 |     mcpwm_operator_config_t op_config = {
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:34:9: error: field name not in record or union initializer
+   34 |         .group_id = 0,
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:34:9: note: (near initialization for 'op_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:35:9: error: field name not in record or union initializer
+   35 |         .flags = 0,
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:35:9: note: (near initialization for 'op_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:35:18: error: excess elements in scalar initializer [-Werror]
+   35 |         .flags = 0,
+      |                  ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:35:18: note: (near initialization for 'op_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:36:9: error: field name not in record or union initializer
+   36 |         .intr_priority = 0,
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:36:9: note: (near initialization for 'op_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:36:26: error: excess elements in scalar initializer [-Werror]
+   36 |         .intr_priority = 0,
+      |                          ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:36:26: note: (near initialization for 'op_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:39:21: error: implicit declaration of function 'mcpwm_new_operator' [-Wimplicit-function-declaration]
+   39 |     ESP_ERROR_CHECK(mcpwm_new_operator(&op_config, &op));
+      |                     ^~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:42:5: error: unknown type name 'mcpwm_comparator_handle_t'
+   42 |     mcpwm_comparator_handle_t comparator = NULL;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:42:44: error: initialization of 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   42 |     mcpwm_comparator_handle_t comparator = NULL;
+      |                                            ^~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:43:12: error: variable 'compflags' has initializer but incomplete type
+   43 |     struct extra_mcpwm_comparator_config_t compflags = {
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:44:10: error: 'struct extra_mcpwm_comparator_config_t' has no member named 'update_cmp_on_tez'
+   44 |         .update_cmp_on_tez = true, // Update comparator on timer event
+      |          ^~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:44:30: error: excess elements in struct initializer [-Werror]
+   44 |         .update_cmp_on_tez = true, // Update comparator on timer event
+      |                              ^~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:44:30: note: (near initialization for 'compflags')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:45:10: error: 'struct extra_mcpwm_comparator_config_t' has no member named 'update_cmp_on_tep'
+   45 |         .update_cmp_on_tep = false,
+      |          ^~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:45:30: error: excess elements in struct initializer [-Werror]
+   45 |         .update_cmp_on_tep = false,
+      |                              ^~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:45:30: note: (near initialization for 'compflags')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:46:10: error: 'struct extra_mcpwm_comparator_config_t' has no member named 'update_cmp_on_sync'
+   46 |         .update_cmp_on_sync = false,
+      |          ^~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:46:31: error: excess elements in struct initializer [-Werror]
+   46 |         .update_cmp_on_sync = false,
+      |                               ^~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:46:31: note: (near initialization for 'compflags')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:43:44: error: storage size of 'compflags' isn't known
+   43 |     struct extra_mcpwm_comparator_config_t compflags = {
+      |                                            ^~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:48:5: error: unknown type name 'mcpwm_comparator_config_t'
+   48 |     mcpwm_comparator_config_t comparator_config = {
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:49:9: error: field name not in record or union initializer
+   49 |         .flags = compflags,
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:49:9: note: (near initialization for 'comparator_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:50:9: error: field name not in record or union initializer
+   50 |         .intr_priority = 0,
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:50:9: note: (near initialization for 'comparator_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:50:26: error: excess elements in scalar initializer [-Werror]
+   50 |         .intr_priority = 0,
+      |                          ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:50:26: note: (near initialization for 'comparator_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:53:21: error: implicit declaration of function 'mcpwm_new_comparator' [-Wimplicit-function-declaration]
+   53 |     ESP_ERROR_CHECK(mcpwm_new_comparator(op, &comparator_config, &comparator));
+      |                     ^~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:56:5: error: unknown type name 'mcpwm_generator_handle_t'
+   56 |     mcpwm_generator_handle_t generator = NULL;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:56:42: error: initialization of 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   56 |     mcpwm_generator_handle_t generator = NULL;
+      |                                          ^~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:57:5: error: unknown type name 'mcpwm_generator_config_t'
+   57 |     mcpwm_generator_config_t generator_config = {
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:58:9: error: field name not in record or union initializer
+   58 |         .gen_gpio_num = 18, // Set the GPIO number for PWM output
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:58:9: note: (near initialization for 'generator_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:59:9: error: field name not in record or union initializer
+   59 |         .flags = 0,
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:59:9: note: (near initialization for 'generator_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:59:18: error: excess elements in scalar initializer [-Werror]
+   59 |         .flags = 0,
+      |                  ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:59:18: note: (near initialization for 'generator_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:60:9: error: field name not in record or union initializer
+   60 |         .intr_priority = 0,
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:60:9: note: (near initialization for 'generator_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:60:26: error: excess elements in scalar initializer [-Werror]
+   60 |         .intr_priority = 0,
+      |                          ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:60:26: note: (near initialization for 'generator_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:62:21: error: implicit declaration of function 'mcpwm_new_generator' [-Wimplicit-function-declaration]
+   62 |     ESP_ERROR_CHECK(mcpwm_new_generator(op, &generator_config, &generator));
+      |                     ^~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:65:21: error: implicit declaration of function 'mcpwm_comparator_set_compare_value' [-Wimplicit-function-declaration]
+   65 |     ESP_ERROR_CHECK(mcpwm_comparator_set_compare_value(comparator, 50));
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:67:21: error: implicit declaration of function 'mcpwm_generator_set_action_on_compare_event' [-Wimplicit-function-declaration]
+   67 |     ESP_ERROR_CHECK(mcpwm_generator_set_action_on_compare_event(generator,
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:68:9: error: implicit declaration of function 'MCPWM_GEN_COMPARE_EVENT_ACTION' [-Wimplicit-function-declaration]
+   68 |         MCPWM_GEN_COMPARE_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, comparator,
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:68:40: error: 'MCPWM_TIMER_DIRECTION_UP' undeclared (first use in this function)
+   68 |         MCPWM_GEN_COMPARE_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, comparator,
+      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:69:9: error: 'MCPWM_GEN_ACTION_LOW' undeclared (first use in this function)
+   69 |         MCPWM_GEN_ACTION_LOW)));
+      |         ^~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:72:21: error: implicit declaration of function 'mcpwm_generator_set_action_on_timer_event' [-Wimplicit-function-declaration]
+   72 |     ESP_ERROR_CHECK(mcpwm_generator_set_action_on_timer_event(generator,
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:73:9: error: implicit declaration of function 'MCPWM_GEN_TIMER_EVENT_ACTION' [-Wimplicit-function-declaration]
+   73 |         MCPWM_GEN_TIMER_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP,
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:74:9: error: 'MCPWM_TIMER_EVENT_EMPTY' undeclared (first use in this function)
+   74 |         MCPWM_TIMER_EVENT_EMPTY, MCPWM_GEN_ACTION_HIGH)));
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:74:34: error: 'MCPWM_GEN_ACTION_HIGH' undeclared (first use in this function)
+   74 |         MCPWM_TIMER_EVENT_EMPTY, MCPWM_GEN_ACTION_HIGH)));
+      |                                  ^~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:77:21: error: implicit declaration of function 'mcpwm_operator_connect_timer' [-Wimplicit-function-declaration]
+   77 |     ESP_ERROR_CHECK(mcpwm_operator_connect_timer(op, timer));
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:79:21: error: implicit declaration of function 'mcpwm_timer_enable' [-Wimplicit-function-declaration]
+   79 |     ESP_ERROR_CHECK(mcpwm_timer_enable(timer));
+      |                     ^~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:80:21: error: implicit declaration of function 'mcpwm_timer_start_stop' [-Wimplicit-function-declaration]
+   80 |     ESP_ERROR_CHECK(mcpwm_timer_start_stop(timer, MCPWM_TIMER_START_NO_STOP));
+      |                     ^~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:80:51: error: 'MCPWM_TIMER_START_NO_STOP' undeclared (first use in this function)
+   80 |     ESP_ERROR_CHECK(mcpwm_timer_start_stop(timer, MCPWM_TIMER_START_NO_STOP));
+      |                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:87:5: error: implicit declaration of function 'delay' [-Wimplicit-function-declaration]
+   87 |     delay(10000); // Run for 10 seconds
+      |     ^~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:89:21: error: implicit declaration of function 'mcpwm_timer_stop' [-Wimplicit-function-declaration]
+   89 |     ESP_ERROR_CHECK(mcpwm_timer_stop(timer, MCPWM_TIMER_STOP_FULL));
+      |                     ^~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:89:45: error: 'MCPWM_TIMER_STOP_FULL' undeclared (first use in this function)
+   89 |     ESP_ERROR_CHECK(mcpwm_timer_stop(timer, MCPWM_TIMER_STOP_FULL));
+      |                                             ^~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:90:21: error: implicit declaration of function 'mcpwm_timer_disable'; did you mean 'esp_intr_disable'? [-Wimplicit-function-declaration]
+   90 |     ESP_ERROR_CHECK(mcpwm_timer_disable(timer));
+      |                     ^~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:93:21: error: implicit declaration of function 'mcpwm_del_generator' [-Wimplicit-function-declaration]
+   93 |     ESP_ERROR_CHECK(mcpwm_del_generator(generator));
+      |                     ^~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:96:21: error: implicit declaration of function 'mcpwm_del_comparator' [-Wimplicit-function-declaration]
+   96 |     ESP_ERROR_CHECK(mcpwm_del_comparator(comparator));
+      |                     ^~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:99:21: error: implicit declaration of function 'mcpwm_del_operator' [-Wimplicit-function-declaration]
+   99 |     ESP_ERROR_CHECK(mcpwm_del_operator(op));
+      |                     ^~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:103:21: error: implicit declaration of function 'mcpwm_del_timer' [-Wimplicit-function-declaration]
+  103 |     ESP_ERROR_CHECK(mcpwm_del_timer(timer));
+      |                     ^~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:43:44: warning: unused variable 'compflags' [-Wunused-variable]
+   43 |     struct extra_mcpwm_comparator_config_t compflags = {
+      |                                            ^~~~~~~~~
+cc1: all warnings being treated as errors
+[489/513] Linking C static library esp-idf/esp_timer/libesp_timer.a
+[490/513] Performing configure step for 'bootloader'
+-- Found Git: /usr/bin/git (found version "2.50.1 (Apple Git-155)")
+-- Minimal build - OFF
+-- The C compiler identification is GNU 15.2.0
+-- The CXX compiler identification is GNU 15.2.0
+-- The ASM compiler identification is GNU
+-- Found assembler: /Users/benstevenson/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /Users/benstevenson/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /Users/benstevenson/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Building ESP-IDF components for target esp32
+-- KCONFIG_REPORT_VERBOSITY not set, using default
+-- Project sdkconfig file /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/sdkconfig
+NOTE: Kconfig parser version: 1
+NOTE: Kconfig defaults policy: use sdkconfig
+NOTE: Status: Finished successfully
+-- Compiler supported targets: xtensa-esp-elf
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Adding linker script /Users/benstevenson/.espressif/v6.1/esp-idf/components/soc/esp32/ld/esp32.peripherals.ld
+-- Adding linker script /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_regi2c/esp32/rom.regi2c.ld
+-- Bootloader project name: "bootloader" version: 1
+-- Adding linker script /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_rom/esp32/ld/esp32.rom.ld
+-- Adding linker script /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_rom/esp32/ld/esp32.rom.api.ld
+-- Adding linker script /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_rom/esp32/ld/esp32.rom.libgcc.ld
+-- Adding linker script /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_rom/esp32/ld/esp32.rom.libc-funcs.ld
+-- Components: bootloader bootloader_support efuse esp_app_format esp_blockdev esp_bootloader_format esp_common esp_hal_ana_conv esp_hal_clock esp_hal_dma esp_hal_gpio esp_hal_gpspi esp_hal_i2s esp_hal_mspi esp_hal_pmu esp_hal_regi2c esp_hal_rtc_timer esp_hal_security esp_hal_systimer esp_hal_timg esp_hal_uart esp_hal_usb esp_hal_wdt esp_hw_support esp_libc esp_rom esp_security esp_stdio esp_system esptool_py freertos hal log main micro-ecc partition_table soc spi_flash xtensa
+-- Component paths: /Users/benstevenson/.espressif/v6.1/esp-idf/components/bootloader /Users/benstevenson/.espressif/v6.1/esp-idf/components/bootloader_support /Users/benstevenson/.espressif/v6.1/esp-idf/components/efuse /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_app_format /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_blockdev /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_bootloader_format /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_ana_conv /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_clock /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_dma /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_gpio /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_gpspi /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_i2s /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_mspi /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_pmu /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_regi2c /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_rtc_timer /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_security /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_systimer /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_timg /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_uart /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_usb /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_wdt /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_libc /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_rom /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_security /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_stdio /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_system /Users/benstevenson/.espressif/v6.1/esp-idf/components/esptool_py /Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos /Users/benstevenson/.espressif/v6.1/esp-idf/components/hal /Users/benstevenson/.espressif/v6.1/esp-idf/components/log /Users/benstevenson/.espressif/v6.1/esp-idf/components/bootloader/subproject/main /Users/benstevenson/.espressif/v6.1/esp-idf/components/bootloader/subproject/components/micro-ecc /Users/benstevenson/.espressif/v6.1/esp-idf/components/partition_table /Users/benstevenson/.espressif/v6.1/esp-idf/components/soc /Users/benstevenson/.espressif/v6.1/esp-idf/components/spi_flash /Users/benstevenson/.espressif/v6.1/esp-idf/components/xtensa
+-- Adding linker script /Users/benstevenson/.espressif/v6.1/esp-idf/components/bootloader/subproject/main/ld/esp32/bootloader.memory.ld.in
+--   -> Preprocessing .in script: /Users/benstevenson/.espressif/v6.1/esp-idf/components/bootloader/subproject/main/ld/esp32/bootloader.memory.ld.in
+-- Adding linker script /Users/benstevenson/.espressif/v6.1/esp-idf/components/bootloader/subproject/main/ld/esp32/bootloader.sections.ld.in
+--   -> Preprocessing .in script: /Users/benstevenson/.espressif/v6.1/esp-idf/components/bootloader/subproject/main/ld/esp32/bootloader.sections.ld.in
+-- Configuring done (4.3s)
+-- Generating done (0.1s)
+-- Build files have been written to: /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/build/bootloader
+ninja: build stopped: subcommand failed.

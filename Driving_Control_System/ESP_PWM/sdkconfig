@@ -852,6 +852,32 @@ CONFIG_ESP_ERR_TO_NAME_LOOKUP=y
 # end of ESP-Driver:GPIO Configurations
 
 #
+# ESP-Driver:MCPWM Configurations
+#
+# default:
+CONFIG_MCPWM_ISR_HANDLER_IN_IRAM=y
+# default:
+# CONFIG_MCPWM_ISR_CACHE_SAFE is not set
+# default:
+# CONFIG_MCPWM_CTRL_FUNC_IN_IRAM is not set
+# default:
+CONFIG_MCPWM_OBJ_CACHE_SAFE=y
+# default:
+# CONFIG_MCPWM_ENABLE_DEBUG_LOG is not set
+# end of ESP-Driver:MCPWM Configurations
+
+#
+# ESP-Driver:PCNT Configurations
+#
+# default:
+# CONFIG_PCNT_CTRL_FUNC_IN_IRAM is not set
+# default:
+# CONFIG_PCNT_ISR_IRAM_SAFE is not set
+# default:
+# CONFIG_PCNT_ENABLE_DEBUG_LOG is not set
+# end of ESP-Driver:PCNT Configurations
+
+#
 # Hardware Settings
 #
 # default:
@@ -1995,6 +2021,7 @@ CONFIG_STACK_CHECK_NONE=y
 # CONFIG_STACK_CHECK_STRONG is not set
 # CONFIG_STACK_CHECK_ALL is not set
 # CONFIG_WARN_WRITE_STRINGS is not set
+# CONFIG_MCPWM_ISR_IRAM_SAFE is not set
 # CONFIG_TWO_UNIVERSAL_MAC_ADDRESS is not set
 CONFIG_FOUR_UNIVERSAL_MAC_ADDRESS=y
 CONFIG_NUMBER_OF_UNIVERSAL_MAC_ADDRESS=4

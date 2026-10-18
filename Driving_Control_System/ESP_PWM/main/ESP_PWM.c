@@ -1,14 +1,18 @@
 
 #include <stdio.h>
-#include "esp_timer.h"
-#include "mcpwm_prelude.h"
-#include "soc/clk_tree_defs.h"
-#include "esp_clk_tree.h"
-//#include "driver/mcpwm.h"
+#include <inttypes.h>
+#include "sdkconfig.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#include "esp_chip_info.h"
+#include "esp_flash.h"
+#include "esp_system.h"
+#include "driver/mcpwm_prelude.h"
 
 
 
-int main(){
+
+void app_main(void){
 
     // Initialize the ESP32 timer
     mcpwm_timer_handle_t timer = NULL;
@@ -20,41 +24,40 @@ int main(){
         .period_ticks = 100,                     // e.g., 100 ticks period -> 1 kHz frequency
         .count_mode = MCPWM_TIMER_COUNT_MODE_UP, // Count up for PWM
         .intr_priority = 0,                        // Interrupt priority
-        .flags = 0,                                // No special flags
+        .flags = {0, 0, 0}                               // No special flags
     };
 
     ESP_ERROR_CHECK(mcpwm_new_timer(&timer_config, &timer));
 
     //Initialize Operator
-    mcpwm_operator_handle_t op = NULL;
+    mcpwm_oper_handle_t op = NULL;
     mcpwm_operator_config_t op_config = {
         .group_id = 0,
-        .flags = 0,
-        .intr_priority = 0,
+        .flags = {0, 0, 0},
+        .intr_priority = 0
     };
 
     ESP_ERROR_CHECK(mcpwm_new_operator(&op_config, &op));
 
     // Initialize Comparator
-    mcpwm_comparator_handle_t comparator = NULL;
-    struct extra_mcpwm_comparator_config_t compflags = {
+    mcpwm_cmpr_handle_t comparator = NULL;
+    /*struct extra_mcpwm_comparator_config_t compflags = {
         .update_cmp_on_tez = true, // Update comparator on timer event
         .update_cmp_on_tep = false,
         .update_cmp_on_sync = false,
-    };
+    };*/
     mcpwm_comparator_config_t comparator_config = {
-        .flags = compflags,
+        .flags.update_cmp_on_tez = 1,
         .intr_priority = 0,
     };
 
     ESP_ERROR_CHECK(mcpwm_new_comparator(op, &comparator_config, &comparator));
 
     //Initialize PWM generator
-    mcpwm_generator_handle_t generator = NULL;
+    mcpwm_gen_handle_t generator = NULL;
     mcpwm_generator_config_t generator_config = {
         .gen_gpio_num = 18, // Set the GPIO number for PWM output
-        .flags = 0,
-        .intr_priority = 0,
+        .flags.invert_pwm = 0
     };
     ESP_ERROR_CHECK(mcpwm_new_generator(op, &generator_config, &generator));
 
@@ -76,9 +79,12 @@ int main(){
     ESP_ERROR_CHECK(mcpwm_timer_enable(timer));
     ESP_ERROR_CHECK(mcpwm_timer_start_stop(timer, MCPWM_TIMER_START_NO_STOP));
 
-    delay(10000); // Run for 10 seconds
+    while(1){
+        printf("PWM running...\n");
+        vTaskDelay(pdMS_TO_TICKS(1000)); // Delay for 1 second
+    }
 
-    ESP_ERROR_CHECK(mcpwm_timer_stop(timer, MCPWM_TIMER_STOP_FULL));
+    ESP_ERROR_CHECK(mcpwm_timer_start_stop(timer, MCPWM_TIMER_STOP_FULL));
     ESP_ERROR_CHECK(mcpwm_timer_disable(timer));
 
     //register the generator to the system

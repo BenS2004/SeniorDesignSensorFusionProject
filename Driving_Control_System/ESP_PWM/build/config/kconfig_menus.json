@@ -5875,6 +5875,102 @@
                 "children": [
                     {
                         "children": [],
+                        "depends_on": "SOC_MCPWM_SUPPORTED",
+                        "help": "Place MCPWM ISR handler(s) in IRAM to reduce latency caused by cache miss.",
+                        "id": "MCPWM_ISR_HANDLER_IN_IRAM",
+                        "name": "MCPWM_ISR_HANDLER_IN_IRAM",
+                        "range": null,
+                        "title": "Place MCPWM ISR handler into IRAM to reduce latency",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "SOC_MCPWM_SUPPORTED",
+                        "help": "Enable this option to allow the MCPWM Interrupt Service Routine (ISR)\nto execute even when the cache is disabled. This can be useful in scenarios where the cache\nmight be turned off, but the MCPWM functionality is still required to operate correctly.",
+                        "id": "MCPWM_ISR_CACHE_SAFE",
+                        "name": "MCPWM_ISR_CACHE_SAFE",
+                        "range": null,
+                        "title": "Allow MCPWM ISR to execute when cache is disabled",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "SOC_MCPWM_SUPPORTED",
+                        "help": "Place MCPWM control functions in IRAM, to reduce latency caused by cache miss.\nIf enabled, these functions can also be called when cache is disabled.",
+                        "id": "MCPWM_CTRL_FUNC_IN_IRAM",
+                        "name": "MCPWM_CTRL_FUNC_IN_IRAM",
+                        "range": null,
+                        "title": "Place MCPWM control functions in IRAM",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "SOC_MCPWM_SUPPORTED",
+                        "help": "This will ensure the MCPWM object will not be allocated from a memory region\nwhere its cache can be disabled.",
+                        "id": "MCPWM_OBJ_CACHE_SAFE",
+                        "name": "MCPWM_OBJ_CACHE_SAFE",
+                        "range": null,
+                        "title": null,
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "SOC_MCPWM_SUPPORTED",
+                        "help": "If enabled, MCPWM component will:\n1. ignore the global logging settings\n2. compile all log messages into the binary\n3. set the runtime log level to VERBOSE\nPlease enable this option with caution, as it will increase the binary size.",
+                        "id": "MCPWM_ENABLE_DEBUG_LOG",
+                        "name": "MCPWM_ENABLE_DEBUG_LOG",
+                        "range": null,
+                        "title": "Force enable debug log",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": "SOC_MCPWM_SUPPORTED",
+                "id": "component-config-esp-driver-mcpwm-configurations-Users-benstevenson-.espressif-v6.1-esp-idf-components-esp_driver_mcpwm-Kconfig-1",
+                "title": "ESP-Driver:MCPWM Configurations",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
+                        "depends_on": "SOC_PCNT_SUPPORTED",
+                        "help": "Place PCNT control functions (like start/stop) into IRAM,\nso that these functions can be IRAM-safe and able to be called in the other IRAM interrupt context.\nEnabling this option can improve driver performance as well.",
+                        "id": "PCNT_CTRL_FUNC_IN_IRAM",
+                        "name": "PCNT_CTRL_FUNC_IN_IRAM",
+                        "range": null,
+                        "title": "Place PCNT control functions into IRAM",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "SOC_PCNT_SUPPORTED",
+                        "help": "Ensure the PCNT interrupt is IRAM-Safe by allowing the interrupt handler to be\nexecutable when the cache is disabled (e.g. SPI Flash write).",
+                        "id": "PCNT_ISR_IRAM_SAFE",
+                        "name": "PCNT_ISR_IRAM_SAFE",
+                        "range": null,
+                        "title": "PCNT ISR IRAM-Safe",
+                        "type": "bool"
+                    },
+                    {
+                        "children": [],
+                        "depends_on": "SOC_PCNT_SUPPORTED",
+                        "help": "whether to enable the debug log message for PCNT driver.\nNote that, this option only controls the PCNT driver log, won't affect other drivers.",
+                        "id": "PCNT_ENABLE_DEBUG_LOG",
+                        "name": "PCNT_ENABLE_DEBUG_LOG",
+                        "range": null,
+                        "title": "Enable debug log",
+                        "type": "bool"
+                    }
+                ],
+                "depends_on": "SOC_PCNT_SUPPORTED",
+                "id": "component-config-esp-driver-pcnt-configurations-Users-benstevenson-.espressif-v6.1-esp-idf-components-esp_driver_pcnt-Kconfig-1",
+                "title": "ESP-Driver:PCNT Configurations",
+                "type": "menu"
+            },
+            {
+                "children": [
+                    {
+                        "children": [],
                         "depends_on": null,
                         "help": null,
                         "id": "ESP_HW_SUPPORT_FUNC_IN_IRAM",

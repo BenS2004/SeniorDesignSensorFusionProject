@@ -1,0 +1,8 @@
+Command: ninja all
+[1/4] cd /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/build && /Users/benstevenson/.espressif/tools/python/v6.1/venv/bin/python /Users/benstevenson/.espressif/v6.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/build/partition_table/partition-table.bin /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/build/ESP_PWM.bin
+ESP_PWM.bin binary size 0x22b80 bytes. Smallest app partition is 0x100000 bytes. 0xdd480 bytes (86%) free.
+[2/4] Performing build step for 'bootloader'
+[1/1] cd /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/build/bootloader && /Users/benstevenson/.espressif/tools/python/v6.1/venv/bin/python /Users/benstevenson/.espressif/v6.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/build/bootloader/bootloader.bin
+Bootloader binary size 0x6640 bytes. 0x9c0 bytes (9%) free.
+[3/4] No install step for 'bootloader'
+[4/4] Completed 'bootloader'

@@ -1,0 +1,377 @@
+Command: ninja all
+[0/1] Re-running CMake...
+-- Minimal build - ON
+-- Building ESP-IDF components for target esp32
+-- KCONFIG_REPORT_VERBOSITY not set, using default
+-- Project sdkconfig file /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/sdkconfig
+-- Compiler supported targets: xtensa-esp-elf
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- App "ESP_PWM" version: b2e8b0d-dirty
+-- Setting up mbedtls configuration
+-- Linkage type is PUBLIC
+-- Adding linker script /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_system/ld/esp32/memory.ld.in
+--   -> Preprocessing .in script: /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_system/ld/esp32/memory.ld.in
+-- Adding linker script /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_system/ld/esp32/sections.ld.in
+--   -> Preprocessing .in script: /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_system/ld/esp32/sections.ld.in
+--   -> Applying ldgen processing: /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/build/esp-idf/esp_system/ld/sections.ld.in
+-- Adding linker script /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_rom/esp32/ld/esp32.rom.ld
+-- Adding linker script /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_rom/esp32/ld/esp32.rom.api.ld
+-- Adding linker script /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_rom/esp32/ld/esp32.rom.libgcc.ld
+-- Adding linker script /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_rom/esp32/ld/esp32.rom.libc-funcs.ld
+-- Adding linker script /Users/benstevenson/.espressif/v6.1/esp-idf/components/soc/esp32/ld/esp32.peripherals.ld
+-- Adding linker script /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_regi2c/esp32/rom.regi2c.ld
+-- Components: app_update bootloader bootloader_support cxx efuse esp_app_format esp_blockdev esp_bootloader_format esp_common esp_driver_dma esp_driver_gpio esp_driver_mcpwm esp_driver_pcnt esp_hal_ana_conv esp_hal_clock esp_hal_dma esp_hal_gpio esp_hal_gpspi esp_hal_i2s esp_hal_mcpwm esp_hal_mspi esp_hal_pcnt esp_hal_pmu esp_hal_regi2c esp_hal_rtc_timer esp_hal_security esp_hal_systimer esp_hal_timg esp_hal_touch_sens esp_hal_uart esp_hal_usb esp_hal_wdt esp_hw_support esp_libc esp_mm esp_partition esp_pm esp_rom esp_security esp_stdio esp_system esp_timer esp_usb_cdc_rom_console esptool_py freertos hal heap log main mbedtls partition_table pthread soc spi_flash xtensa
+-- Component paths: /Users/benstevenson/.espressif/v6.1/esp-idf/components/app_update /Users/benstevenson/.espressif/v6.1/esp-idf/components/bootloader /Users/benstevenson/.espressif/v6.1/esp-idf/components/bootloader_support /Users/benstevenson/.espressif/v6.1/esp-idf/components/cxx /Users/benstevenson/.espressif/v6.1/esp-idf/components/efuse /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_app_format /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_blockdev /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_bootloader_format /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_driver_dma /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_driver_gpio /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_driver_mcpwm /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_driver_pcnt /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_ana_conv /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_clock /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_dma /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_gpio /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_gpspi /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_i2s /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_mcpwm /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_mspi /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_pcnt /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_pmu /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_regi2c /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_rtc_timer /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_security /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_systimer /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_timg /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_touch_sens /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_uart /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_usb /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_wdt /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_libc /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_mm /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_partition /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_pm /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_rom /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_security /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_stdio /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_system /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_timer /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_usb_cdc_rom_console /Users/benstevenson/.espressif/v6.1/esp-idf/components/esptool_py /Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos /Users/benstevenson/.espressif/v6.1/esp-idf/components/hal /Users/benstevenson/.espressif/v6.1/esp-idf/components/heap /Users/benstevenson/.espressif/v6.1/esp-idf/components/log /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main /Users/benstevenson/.espressif/v6.1/esp-idf/components/mbedtls /Users/benstevenson/.espressif/v6.1/esp-idf/components/partition_table /Users/benstevenson/.espressif/v6.1/esp-idf/components/pthread /Users/benstevenson/.espressif/v6.1/esp-idf/components/soc /Users/benstevenson/.espressif/v6.1/esp-idf/components/spi_flash /Users/benstevenson/.espressif/v6.1/esp-idf/components/xtensa
+-- Configuring done (4.5s)
+-- Generating done (0.3s)
+-- Build files have been written to: /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/build
+[1/16] Performing build step for 'bootloader'
+[1/1] cd /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/build/bootloader && /Users/benstevenson/.espressif/tools/python/v6.1/venv/bin/python /Users/benstevenson/.espressif/v6.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/build/bootloader/bootloader.bin
+Bootloader binary size 0x6640 bytes. 0x9c0 bytes (9%) free.
+[2/16] Linking C static library esp-idf/xtensa/libxtensa.a
+[3/16] No install step for 'bootloader'
+[4/16] Completed 'bootloader'
+[5/16] Linking C static library esp-idf/esp_hal_pcnt/libesp_hal_pcnt.a
+[6/16] Linking C static library esp-idf/esp_hal_mcpwm/libesp_hal_mcpwm.a
+[7/16] Linking C static library esp-idf/esp_driver_pcnt/libesp_driver_pcnt.a
+[8/16] Linking C static library esp-idf/esp_driver_mcpwm/libesp_driver_mcpwm.a
+[9/16] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/ESP_PWM.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/ESP_PWM.c.obj 
+/Users/benstevenson/.espressif/tools/xtensa-esp-elf/esp-15.2.0_20251204/xtensa-esp-elf/bin/xtensa-esp32-elf-gcc -DESP_PLATFORM -DIDF_VER=\"v6.1\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -I/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/build/config -I/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_libc/platform_include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/config/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/config/include/freertos -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/config/xtensa/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/esp_additions/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/include/soc -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/ldo/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/debug_probe/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/etm/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/mspi/mspi_timing_tuning/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/mspi/mspi_timing_tuning/tuning_scheme_impl/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/mspi/mspi_intr/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/power_supply/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/modem/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/port/esp32/. -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/port/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/heap/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/heap/tlsf -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/log/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/soc/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/soc/esp32 -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/soc/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/soc/esp32/register -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/hal/platform_port/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/hal/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/hal/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_rom/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_rom/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_rom/esp32/include/esp32 -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_rom/esp32 -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_system/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_system/port/soc -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_system/port/include/private -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_stdio/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/xtensa/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/xtensa/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/xtensa/deprecated_include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_gpio/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_gpio/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_usb/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_pmu/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_pmu/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_regi2c/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_regi2c/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_uart/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_uart/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_ana_conv/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_ana_conv/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_dma/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_i2s/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_i2s/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/spi_flash/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_mspi/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_mspi/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_gpspi/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_gpspi/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_clock/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_clock/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_blockdev/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_timer/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_driver_pcnt/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_pcnt/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_pcnt/esp32/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_driver_mcpwm/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_mcpwm/include -I/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hal_mcpwm/esp32/include @"/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/build/toolchain/cflags" -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-error=extra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fno-shrink-wrap -fmacro-prefix-map=/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM=. -fmacro-prefix-map=/Users/benstevenson/.espressif/v6.1/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu23 -Wno-old-style-declaration -fzero-init-padding-bits=all -fno-malloc-dce -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/ESP_PWM.c.obj -MF esp-idf/main/CMakeFiles/__idf_main.dir/ESP_PWM.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/ESP_PWM.c.obj -c /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c: In function 'main':
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:17:5: error: unknown type name 'mcpwm_timer_handle_t'
+   17 |     mcpwm_timer_handle_t timer = NULL;
+      |     ^~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:17:34: error: initialization of 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   17 |     mcpwm_timer_handle_t timer = NULL;
+      |                                  ^~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:19:5: error: unknown type name 'mcpwm_timer_config_t'
+   19 |     mcpwm_timer_config_t timer_config = {
+      |     ^~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:20:9: error: field name not in record or union initializer
+   20 |         .group_id = 0,
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:20:9: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:21:9: error: field name not in record or union initializer
+   21 |         .clk_src = MCPWM_TIMER_CLK_SRC_DEFAULT, // Choose your source clock here
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:21:9: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:21:20: error: 'MCPWM_TIMER_CLK_SRC_DEFAULT' undeclared (first use in this function)
+   21 |         .clk_src = MCPWM_TIMER_CLK_SRC_DEFAULT, // Choose your source clock here
+      |                    ^~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:21:20: note: each undeclared identifier is reported only once for each function it appears in
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:21:20: error: excess elements in scalar initializer [-Werror]
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:21:20: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:22:9: error: field name not in record or union initializer
+   22 |         .resolution_hz = 100000,               // e.g., 100 kHz resolution (1 tick = 1 µs)
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:22:9: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:22:26: error: excess elements in scalar initializer [-Werror]
+   22 |         .resolution_hz = 100000,               // e.g., 100 kHz resolution (1 tick = 1 µs)
+      |                          ^~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:22:26: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:23:9: error: field name not in record or union initializer
+   23 |         .period_ticks = 100,                     // e.g., 100 ticks period -> 1 kHz frequency
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:23:9: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:23:25: error: excess elements in scalar initializer [-Werror]
+   23 |         .period_ticks = 100,                     // e.g., 100 ticks period -> 1 kHz frequency
+      |                         ^~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:23:25: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:24:9: error: field name not in record or union initializer
+   24 |         .count_mode = MCPWM_TIMER_COUNT_MODE_UP, // Count up for PWM
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:24:9: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:24:23: error: 'MCPWM_TIMER_COUNT_MODE_UP' undeclared (first use in this function)
+   24 |         .count_mode = MCPWM_TIMER_COUNT_MODE_UP, // Count up for PWM
+      |                       ^~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:24:23: error: excess elements in scalar initializer [-Werror]
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:24:23: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:25:9: error: field name not in record or union initializer
+   25 |         .intr_priority = 0,                        // Interrupt priority
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:25:9: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:25:26: error: excess elements in scalar initializer [-Werror]
+   25 |         .intr_priority = 0,                        // Interrupt priority
+      |                          ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:25:26: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:26:9: error: field name not in record or union initializer
+   26 |         .flags = 0,                                // No special flags
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:26:9: note: (near initialization for 'timer_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:26:18: error: excess elements in scalar initializer [-Werror]
+   26 |         .flags = 0,                                // No special flags
+      |                  ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:26:18: note: (near initialization for 'timer_config')
+In file included from /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/include/esp_intr_alloc.h:12,
+                 from /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/include/esp_cpu.h:21,
+                 from /Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_hw_support/include/spinlock.h:11,
+                 from /Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos/portmacro.h:48,
+                 from /Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/portable.h:57,
+                 from /Users/benstevenson/.espressif/v6.1/esp-idf/components/freertos/FreeRTOS-Kernel/include/freertos/FreeRTOS.h:69,
+                 from /Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:5:
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:29:21: error: implicit declaration of function 'mcpwm_new_timer' [-Wimplicit-function-declaration]
+   29 |     ESP_ERROR_CHECK(mcpwm_new_timer(&timer_config, &timer));
+      |                     ^~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:32:5: error: unknown type name 'mcpwm_operator_handle_t'
+   32 |     mcpwm_operator_handle_t op = NULL;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:32:34: error: initialization of 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   32 |     mcpwm_operator_handle_t op = NULL;
+      |                                  ^~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:33:5: error: unknown type name 'mcpwm_operator_config_t'
+   33 |     mcpwm_operator_config_t op_config = {
+      |     ^~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:34:9: error: field name not in record or union initializer
+   34 |         .group_id = 0,
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:34:9: note: (near initialization for 'op_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:35:9: error: field name not in record or union initializer
+   35 |         .flags = 0,
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:35:9: note: (near initialization for 'op_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:35:18: error: excess elements in scalar initializer [-Werror]
+   35 |         .flags = 0,
+      |                  ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:35:18: note: (near initialization for 'op_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:36:9: error: field name not in record or union initializer
+   36 |         .intr_priority = 0,
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:36:9: note: (near initialization for 'op_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:36:26: error: excess elements in scalar initializer [-Werror]
+   36 |         .intr_priority = 0,
+      |                          ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:36:26: note: (near initialization for 'op_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:39:21: error: implicit declaration of function 'mcpwm_new_operator' [-Wimplicit-function-declaration]
+   39 |     ESP_ERROR_CHECK(mcpwm_new_operator(&op_config, &op));
+      |                     ^~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:42:5: error: unknown type name 'mcpwm_comparator_handle_t'
+   42 |     mcpwm_comparator_handle_t comparator = NULL;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:42:44: error: initialization of 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   42 |     mcpwm_comparator_handle_t comparator = NULL;
+      |                                            ^~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:43:12: error: variable 'compflags' has initializer but incomplete type
+   43 |     struct extra_mcpwm_comparator_config_t compflags = {
+      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:44:10: error: 'struct extra_mcpwm_comparator_config_t' has no member named 'update_cmp_on_tez'
+   44 |         .update_cmp_on_tez = true, // Update comparator on timer event
+      |          ^~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:44:30: error: excess elements in struct initializer [-Werror]
+   44 |         .update_cmp_on_tez = true, // Update comparator on timer event
+      |                              ^~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:44:30: note: (near initialization for 'compflags')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:45:10: error: 'struct extra_mcpwm_comparator_config_t' has no member named 'update_cmp_on_tep'
+   45 |         .update_cmp_on_tep = false,
+      |          ^~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:45:30: error: excess elements in struct initializer [-Werror]
+   45 |         .update_cmp_on_tep = false,
+      |                              ^~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:45:30: note: (near initialization for 'compflags')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:46:10: error: 'struct extra_mcpwm_comparator_config_t' has no member named 'update_cmp_on_sync'
+   46 |         .update_cmp_on_sync = false,
+      |          ^~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:46:31: error: excess elements in struct initializer [-Werror]
+   46 |         .update_cmp_on_sync = false,
+      |                               ^~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:46:31: note: (near initialization for 'compflags')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:43:44: error: storage size of 'compflags' isn't known
+   43 |     struct extra_mcpwm_comparator_config_t compflags = {
+      |                                            ^~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:48:5: error: unknown type name 'mcpwm_comparator_config_t'
+   48 |     mcpwm_comparator_config_t comparator_config = {
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:49:9: error: field name not in record or union initializer
+   49 |         .flags = compflags,
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:49:9: note: (near initialization for 'comparator_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:50:9: error: field name not in record or union initializer
+   50 |         .intr_priority = 0,
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:50:9: note: (near initialization for 'comparator_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:50:26: error: excess elements in scalar initializer [-Werror]
+   50 |         .intr_priority = 0,
+      |                          ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:50:26: note: (near initialization for 'comparator_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:53:21: error: implicit declaration of function 'mcpwm_new_comparator' [-Wimplicit-function-declaration]
+   53 |     ESP_ERROR_CHECK(mcpwm_new_comparator(op, &comparator_config, &comparator));
+      |                     ^~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:56:5: error: unknown type name 'mcpwm_generator_handle_t'
+   56 |     mcpwm_generator_handle_t generator = NULL;
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:56:42: error: initialization of 'int' from 'void *' makes integer from pointer without a cast [-Wint-conversion]
+   56 |     mcpwm_generator_handle_t generator = NULL;
+      |                                          ^~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:57:5: error: unknown type name 'mcpwm_generator_config_t'
+   57 |     mcpwm_generator_config_t generator_config = {
+      |     ^~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:58:9: error: field name not in record or union initializer
+   58 |         .gen_gpio_num = 18, // Set the GPIO number for PWM output
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:58:9: note: (near initialization for 'generator_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:59:9: error: field name not in record or union initializer
+   59 |         .flags = 0,
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:59:9: note: (near initialization for 'generator_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:59:18: error: excess elements in scalar initializer [-Werror]
+   59 |         .flags = 0,
+      |                  ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:59:18: note: (near initialization for 'generator_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:60:9: error: field name not in record or union initializer
+   60 |         .intr_priority = 0,
+      |         ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:60:9: note: (near initialization for 'generator_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:60:26: error: excess elements in scalar initializer [-Werror]
+   60 |         .intr_priority = 0,
+      |                          ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:60:26: note: (near initialization for 'generator_config')
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:62:21: error: implicit declaration of function 'mcpwm_new_generator' [-Wimplicit-function-declaration]
+   62 |     ESP_ERROR_CHECK(mcpwm_new_generator(op, &generator_config, &generator));
+      |                     ^~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:65:21: error: implicit declaration of function 'mcpwm_comparator_set_compare_value' [-Wimplicit-function-declaration]
+   65 |     ESP_ERROR_CHECK(mcpwm_comparator_set_compare_value(comparator, 50));
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:67:21: error: implicit declaration of function 'mcpwm_generator_set_action_on_compare_event' [-Wimplicit-function-declaration]
+   67 |     ESP_ERROR_CHECK(mcpwm_generator_set_action_on_compare_event(generator,
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:68:9: error: implicit declaration of function 'MCPWM_GEN_COMPARE_EVENT_ACTION' [-Wimplicit-function-declaration]
+   68 |         MCPWM_GEN_COMPARE_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, comparator,
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:68:40: error: 'MCPWM_TIMER_DIRECTION_UP' undeclared (first use in this function)
+   68 |         MCPWM_GEN_COMPARE_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP, comparator,
+      |                                        ^~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:69:9: error: 'MCPWM_GEN_ACTION_LOW' undeclared (first use in this function)
+   69 |         MCPWM_GEN_ACTION_LOW)));
+      |         ^~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:72:21: error: implicit declaration of function 'mcpwm_generator_set_action_on_timer_event' [-Wimplicit-function-declaration]
+   72 |     ESP_ERROR_CHECK(mcpwm_generator_set_action_on_timer_event(generator,
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:73:9: error: implicit declaration of function 'MCPWM_GEN_TIMER_EVENT_ACTION' [-Wimplicit-function-declaration]
+   73 |         MCPWM_GEN_TIMER_EVENT_ACTION(MCPWM_TIMER_DIRECTION_UP,
+      |         ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:74:9: error: 'MCPWM_TIMER_EVENT_EMPTY' undeclared (first use in this function)
+   74 |         MCPWM_TIMER_EVENT_EMPTY, MCPWM_GEN_ACTION_HIGH)));
+      |         ^~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:74:34: error: 'MCPWM_GEN_ACTION_HIGH' undeclared (first use in this function)
+   74 |         MCPWM_TIMER_EVENT_EMPTY, MCPWM_GEN_ACTION_HIGH)));
+      |                                  ^~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:77:21: error: implicit declaration of function 'mcpwm_operator_connect_timer' [-Wimplicit-function-declaration]
+   77 |     ESP_ERROR_CHECK(mcpwm_operator_connect_timer(op, timer));
+      |                     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:79:21: error: implicit declaration of function 'mcpwm_timer_enable' [-Wimplicit-function-declaration]
+   79 |     ESP_ERROR_CHECK(mcpwm_timer_enable(timer));
+      |                     ^~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:80:21: error: implicit declaration of function 'mcpwm_timer_start_stop' [-Wimplicit-function-declaration]
+   80 |     ESP_ERROR_CHECK(mcpwm_timer_start_stop(timer, MCPWM_TIMER_START_NO_STOP));
+      |                     ^~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:80:51: error: 'MCPWM_TIMER_START_NO_STOP' undeclared (first use in this function)
+   80 |     ESP_ERROR_CHECK(mcpwm_timer_start_stop(timer, MCPWM_TIMER_START_NO_STOP));
+      |                                                   ^~~~~~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:87:5: error: implicit declaration of function 'delay' [-Wimplicit-function-declaration]
+   87 |     delay(10000); // Run for 10 seconds
+      |     ^~~~~
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:89:21: error: implicit declaration of function 'mcpwm_timer_stop' [-Wimplicit-function-declaration]
+   89 |     ESP_ERROR_CHECK(mcpwm_timer_stop(timer, MCPWM_TIMER_STOP_FULL));
+      |                     ^~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:89:45: error: 'MCPWM_TIMER_STOP_FULL' undeclared (first use in this function)
+   89 |     ESP_ERROR_CHECK(mcpwm_timer_stop(timer, MCPWM_TIMER_STOP_FULL));
+      |                                             ^~~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:90:21: error: implicit declaration of function 'mcpwm_timer_disable'; did you mean 'esp_intr_disable'? [-Wimplicit-function-declaration]
+   90 |     ESP_ERROR_CHECK(mcpwm_timer_disable(timer));
+      |                     ^~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:93:21: error: implicit declaration of function 'mcpwm_del_generator' [-Wimplicit-function-declaration]
+   93 |     ESP_ERROR_CHECK(mcpwm_del_generator(generator));
+      |                     ^~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:96:21: error: implicit declaration of function 'mcpwm_del_comparator' [-Wimplicit-function-declaration]
+   96 |     ESP_ERROR_CHECK(mcpwm_del_comparator(comparator));
+      |                     ^~~~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:99:21: error: implicit declaration of function 'mcpwm_del_operator' [-Wimplicit-function-declaration]
+   99 |     ESP_ERROR_CHECK(mcpwm_del_operator(op));
+      |                     ^~~~~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:103:21: error: implicit declaration of function 'mcpwm_del_timer' [-Wimplicit-function-declaration]
+  103 |     ESP_ERROR_CHECK(mcpwm_del_timer(timer));
+      |                     ^~~~~~~~~~~~~~~
+/Users/benstevenson/.espressif/v6.1/esp-idf/components/esp_common/include/esp_err.h:116:30: note: in definition of macro 'ESP_ERROR_CHECK'
+  116 |         esp_err_t err_rc_ = (x);                                        \
+      |                              ^
+/Users/benstevenson/Documents/GitHub/ECE_3300_Lab/SeniorDesignSensorFusionProject/Driving_Control_System/ESP_PWM/main/ESP_PWM.c:43:44: warning: unused variable 'compflags' [-Wunused-variable]
+   43 |     struct extra_mcpwm_comparator_config_t compflags = {
+      |                                            ^~~~~~~~~
+cc1: all warnings being treated as errors
+ninja: build stopped: subcommand failed.
