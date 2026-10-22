@@ -5,10 +5,15 @@ struct UltrasonicSensor {
   uint8_t echoPin;
 };
 
-UltrasonicSensor sensorFront = {19, 18};
+UltrasonicSensor sensorFront = {23, 22};
+UltrasonicSensor sensorLeft = {18, 19};
+UltrasonicSensor sensorRight = {17, 5};
+UltrasonicSensor sensorBack = {4, 16};
 const float SPEED_OF_SOUND = 0.0343;
 void setup() {
   // put your setup code here, to run once:
+  Serial.begin(9600);
+
 
 }
 
@@ -17,13 +22,13 @@ void loop() {
     // Measure Distances Every 100ms
   if (millis() - lastSensorRead >= 100) {
     float distanceFront = measureDistance(sensorFront);
-    //float distanceLeft  = measureDistance(sensorLeft);
-    //float distanceRight = measureDistance(sensorRight);
-    //float distanceBack = measureDistance(sensorBack);
+    float distanceLeft  = measureDistance(sensorLeft);
+    float distanceRight = measureDistance(sensorRight);
+    float distanceBack = measureDistance(sensorBack);
 
     // Print Sensor Data
     Serial.printf("Front: %.1f cm | Left: %.1f cm | Right: %.1f cm | Back: %.1f cm\n", 
-                  distanceFront/*, distanceLeft, distanceRight, distanceBack*/);
+                  distanceFront, distanceLeft, distanceRight, distanceBack);
 
     // Update Turning Flags
     //updateFlags(distanceFront, distanceLeft, distanceRight);
