@@ -341,7 +341,48 @@ void loop() {
   // =================================================
 
   // Obstacle directly in front
-  if (distanceFront < FRONT_OBSTACLE_DISTANCE) {
+  // =================================================
+// AUTONOMOUS OBSTACLE AVOIDANCE
+// =================================================
+
+// Front + Left + Right blocked
+  if (
+      distanceFront < FRONT_OBSTACLE_DISTANCE &&
+      distanceLeft  < SIDE_OBSTACLE_DISTANCE &&
+      distanceRight < SIDE_OBSTACLE_DISTANCE
+  ) {
+
+    // Back is clear, so reverse
+    if (distanceBack > FRONT_OBSTACLE_DISTANCE) {
+
+      Serial.println(
+        "Front/Left/Right blocked -> moving BACKWARD"
+      );
+
+      moveBackward();
+
+      delay(500);
+
+      stopMotors();
+
+      delay(100);
+    }
+
+    // Back is also blocked, so do not move
+    else {
+
+      Serial.println(
+        "All directions blocked -> STOP"
+      );
+
+      stopMotors();
+
+      delay(100);
+    }
+  }
+
+  // Front obstacle
+  else if (distanceFront < FRONT_OBSTACLE_DISTANCE) {
 
     stopMotors();
 
@@ -396,8 +437,13 @@ void loop() {
   // Clear path
   else {
 
+    Serial.println(
+      "Path clear -> moving FORWARD"
+    );
+
     moveForward();
   }
 
   delay(50);
+
 }
