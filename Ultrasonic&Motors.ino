@@ -46,7 +46,7 @@ const int MOTOR_REVERSE_US = 1650;
 #define ENC_LEFT_A 2
 #define ENC_LEFT_B 15
 
-#define ENCODER_PULSES_PER_REV 36f
+#define ENCODER_PULSES_PER_REV 36.0f
 #define WHEEL_DIAMETER_CM 15.24f
 // =====================================================
 // ENCODER VARIABLES
