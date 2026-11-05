@@ -37,14 +37,16 @@ const int MOTOR_REVERSE_US = 1650;
 // =====================================================
 // ENCODER PINS
 // =====================================================
-// RIGHT [ 2, 15] ,  LEFT[27, 14]
+// RIGHT [ 25, 26] ,  LEFT[27, 14]
 // Right encoder
 #define ENC_RIGHT_A 27
 #define ENC_RIGHT_B 14
 
 // Left encoder
-#define ENC_LEFT_A 2
-#define ENC_LEFT_B 15
+
+#define ENC_LEFT_A 25
+#define ENC_LEFT_B 26
+
 
 #define ENCODER_PULSES_PER_REV 36.0f
 #define WHEEL_DIAMETER_CM 15.24f
@@ -57,9 +59,6 @@ volatile long leftEncoderCount  = 0;
 
 volatile int rightDirection = 1;
 volatile int leftDirection  = 1;
-
-volatile float rightWheelDistanceCM = 0.0;
-volatile float leftWheelDistanceCM  = 0.0;
 
 volatile int prevRightA = LOW;
 volatile int prevRightB = LOW;
@@ -77,6 +76,9 @@ const float SIDE_OBSTACLE_DISTANCE  = 25.0;
 // =====================================================
 // ENCODER INTERRUPTS
 // =====================================================
+// Keep these ISRs integer-only. Any float math here uses the FPU, which
+// faults inside an ISR and crashes the ESP32 (LoadProhibited in _xt_lowint1).
+// Convert counts to distance in loop() with encoderCountToCM().
 
 void IRAM_ATTR rightEncoderISR() {
 
@@ -90,11 +92,9 @@ void IRAM_ATTR rightEncoderISR() {
     rightEncoderCount += rightDirection;
   }
 
-  rightWheelDistanceCM = (rightEncoderCount / ENCODER_PULSES_PER_REV) * (PI * WHEEL_DIAMETER_CM);
-
   prevRightA = A;
   prevRightB = B;
-}
+}  
 
 
 void IRAM_ATTR leftEncoderISR() {
@@ -109,9 +109,12 @@ void IRAM_ATTR leftEncoderISR() {
     leftEncoderCount += leftDirection;
   }
 
-  leftWheelDistanceCM = (leftEncoderCount / ENCODER_PULSES_PER_REV) * (PI * WHEEL_DIAMETER_CM);
   prevLeftA = A;
   prevLeftB = B;
+}
+
+float encoderCountToCM(long count) {
+  return (count / ENCODER_PULSES_PER_REV) * (PI * WHEEL_DIAMETER_CM);
 }
 
 // =====================================================
@@ -338,12 +341,15 @@ void loop() {
   // Print encoder counts
   // -------------------------------------------------
 
+  long rightCount = rightEncoderCount;
+  long leftCount  = leftEncoderCount;
+
   Serial.printf(
     "Encoder Right: %ld | Encoder Left: %ld\nLeft Wheel Distance: %.2f cm | Right Wheel Distance: %.2f cm\n",
-    rightEncoderCount,
-    leftEncoderCount,
-    leftWheelDistanceCM,
-    rightWheelDistanceCM
+    rightCount,
+    leftCount,
+    encoderCountToCM(leftCount),
+    encoderCountToCM(rightCount)
   );
 
   // =================================================
