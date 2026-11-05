@@ -339,9 +339,11 @@ void loop() {
   // -------------------------------------------------
 
   Serial.printf(
-    "Encoder Right: %ld | Encoder Left: %ld\n",
+    "Encoder Right: %ld | Encoder Left: %ld\nLeft Wheel Distance: %.2f cm | Right Wheel Distance: %.2f cm\n",
     rightEncoderCount,
-    leftEncoderCount
+    leftEncoderCount,
+    leftWheelDistanceCM,
+    rightWheelDistanceCM
   );
 
   // =================================================
