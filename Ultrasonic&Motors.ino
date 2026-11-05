@@ -46,6 +46,8 @@ const int MOTOR_REVERSE_US = 1650;
 #define ENC_LEFT_A 2
 #define ENC_LEFT_B 15
 
+#define ENCODER_PULSES_PER_REV 36f
+#define WHEEL_DIAMETER_CM 15.24f
 // =====================================================
 // ENCODER VARIABLES
 // =====================================================
@@ -55,6 +57,9 @@ volatile long leftEncoderCount  = 0;
 
 volatile int rightDirection = 1;
 volatile int leftDirection  = 1;
+
+volatile float rightWheelDistanceCM = 0.0;
+volatile float leftWheelDistanceCM  = 0.0;
 
 volatile int prevRightA = LOW;
 volatile int prevRightB = LOW;
@@ -85,6 +90,8 @@ void IRAM_ATTR rightEncoderISR() {
     rightEncoderCount += rightDirection;
   }
 
+  rightWheelDistanceCM = (rightEncoderCount / ENCODER_PULSES_PER_REV) * (PI * WHEEL_DIAMETER_CM);
+
   prevRightA = A;
   prevRightB = B;
 }
@@ -102,6 +109,7 @@ void IRAM_ATTR leftEncoderISR() {
     leftEncoderCount += leftDirection;
   }
 
+  leftWheelDistanceCM = (leftEncoderCount / ENCODER_PULSES_PER_REV) * (PI * WHEEL_DIAMETER_CM);
   prevLeftA = A;
   prevLeftB = B;
 }
