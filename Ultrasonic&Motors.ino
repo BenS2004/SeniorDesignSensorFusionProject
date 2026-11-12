@@ -29,23 +29,26 @@ const float SPEED_OF_SOUND = 0.0343;
 Servo motorLeft;
 Servo motorRight;
 
-// HB-25 pulse widths
+
+// HB-25 PWM 
 const int MOTOR_STOP_US    = 1500;
+// 30% speed in each direction (150 us from stop). These stay constant.
+// With the way the motors are wired, pulses below MOTOR_STOP_US drive forward.
 const int MOTOR_FORWARD_US = 1350;
 const int MOTOR_REVERSE_US = 1650;
 
 // =====================================================
 // ENCODER PINS
 // =====================================================
-// RIGHT [ 25, 26] ,  LEFT[27, 14]
+// RIGHT [A 25, B 26] , LEFT [A 27, B 14]
 // Right encoder
-#define ENC_RIGHT_A 27
-#define ENC_RIGHT_B 14
+#define ENC_RIGHT_A 25
+#define ENC_RIGHT_B 26
 
 // Left encoder
 
-#define ENC_LEFT_A 25
-#define ENC_LEFT_B 26
+#define ENC_LEFT_A 27
+#define ENC_LEFT_B 14
 
 
 #define ENCODER_PULSES_PER_REV 36.0f
