@@ -32,22 +32,27 @@ const float SPEED_OF_SOUND = 0.0343;
 Servo motorLeft;
 Servo motorRight;
 
-// HB-25 pulse widths
+
+// HB-25 PWM 
 const int MOTOR_STOP_US    = 1500;
+// 30% speed in each direction (150 us from stop). These stay constant.
+// With the way the motors are wired, pulses below MOTOR_STOP_US drive forward.
 const int MOTOR_FORWARD_US = 1350;
 const int MOTOR_REVERSE_US = 1650;
 
 // =====================================================
 // ENCODER PINS
 // =====================================================
-// RIGHT [ 2, 15] ,  LEFT[27, 14]
+// RIGHT [A 25, B 26] , LEFT [A 27, B 14]
 // Right encoder
-#define ENC_RIGHT_A 27
-#define ENC_RIGHT_B 14
+#define ENC_RIGHT_A 25
+#define ENC_RIGHT_B 26
 
 // Left encoder
-#define ENC_LEFT_A 2
-#define ENC_LEFT_B 15
+
+#define ENC_LEFT_A 27
+#define ENC_LEFT_B 14
+
 
 // =====================================================
 // ENCODER VARIABLES
@@ -111,6 +116,9 @@ RobotState_t prevRobotState = Free_State;
 // =====================================================
 // ENCODER INTERRUPTS
 // =====================================================
+// Keep these ISRs integer-only. Any float math here uses the FPU, which
+// faults inside an ISR and crashes the ESP32 (LoadProhibited in _xt_lowint1).
+// Convert counts to distance in loop() with encoderCountToCM().
 
 void IRAM_ATTR rightEncoderISR() {
 
@@ -130,7 +138,7 @@ void IRAM_ATTR rightEncoderISR() {
 
   prevRightA = A;
   prevRightB = B;
-}
+}  
 
 
 void IRAM_ATTR leftEncoderISR() {
@@ -145,9 +153,12 @@ void IRAM_ATTR leftEncoderISR() {
     leftEncoderCount += leftDirection;
   }
 
-  leftWheelDistanceCM = (leftEncoderCount / ENCODER_PULSES_PER_REV) * (PI * WHEEL_DIAMETER_CM);
   prevLeftA = A;
   prevLeftB = B;
+}
+
+float encoderCountToCM(long count) {
+  return (count / ENCODER_PULSES_PER_REV) * (PI * WHEEL_DIAMETER_CM);
 }
 
 // =====================================================
@@ -499,12 +510,15 @@ void loop() {
   // Print encoder counts
   // -------------------------------------------------
 
+  long rightCount = rightEncoderCount;
+  long leftCount  = leftEncoderCount;
+
   Serial.printf(
     "Encoder Right: %ld | Encoder Left: %ld\nLeft Wheel Distance: %.2f cm | Right Wheel Distance: %.2f cm\n",
-    rightEncoderCount,
-    leftEncoderCount,
-    leftWheelDistanceCM,
-    rightWheelDistanceCM
+    rightCount,
+    leftCount,
+    encoderCountToCM(leftCount),
+    encoderCountToCM(rightCount)
   );
 
   // =================================================
