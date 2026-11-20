@@ -1,5 +1,8 @@
 #include <Arduino.h>
 #include <ESP32Servo.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stdint.h>
 
 // =====================================================
 // ULTRASONIC SENSOR STRUCTURE
@@ -46,8 +49,6 @@ const int MOTOR_REVERSE_US = 1650;
 #define ENC_LEFT_A 2
 #define ENC_LEFT_B 15
 
-#define ENCODER_PULSES_PER_REV 36.0f
-#define WHEEL_DIAMETER_CM 15.24f
 // =====================================================
 // ENCODER VARIABLES
 // =====================================================
@@ -58,9 +59,6 @@ volatile long leftEncoderCount  = 0;
 volatile int rightDirection = 1;
 volatile int leftDirection  = 1;
 
-volatile float rightWheelDistanceCM = 0.0;
-volatile float leftWheelDistanceCM  = 0.0;
-
 volatile int prevRightA = LOW;
 volatile int prevRightB = LOW;
 
@@ -68,11 +66,47 @@ volatile int prevLeftA = LOW;
 volatile int prevLeftB = LOW;
 
 // =====================================================
+// ODEMETRY VARIABLES
+// =====================================================
+
+#define ENCODER_PULSES_PER_REV 36.0f
+#define WHEEL_DIAMETER_CM 15.5f
+#define WHEELBASE_CM 39.5f
+#define PI 3.14159f
+#define Right_Left_Sensor_Angle PI/6
+
+volatile float rightWheelDistanceCM = 0.0;
+volatile float leftWheelDistanceCM  = 0.0;
+
+volatile float positionXCM = 0.0;
+volatile float positionYCM = 0.0;
+
+volatile float vectorAngle = 0.0f;
+const float wheelCircumCM = PI*WHEELBASE_CM;
+
+// =====================================================
 // OBSTACLE SETTINGS
 // =====================================================
 
 const float FRONT_OBSTACLE_DISTANCE = 40.0;
 const float SIDE_OBSTACLE_DISTANCE  = 25.0;
+
+// =====================================================
+//Robot State
+// =====================================================
+
+typedef enum RobotState {
+  Free_State = 0,
+  Wide_Turn_Left,
+  Wide_Turn_Right,
+  Tight_Turn_Left,
+  Tight_Turn_Right,
+  Reverse,
+  Stop
+} RobotState_t;
+
+RobotState_t robotState = Free_State;
+RobotState_t prevRobotState = Free_State;
 
 // =====================================================
 // ENCODER INTERRUPTS
@@ -89,8 +123,10 @@ void IRAM_ATTR rightEncoderISR() {
     rightDirection = (A == B) ? -1 : 1;
     rightEncoderCount += rightDirection;
   }
-
-  rightWheelDistanceCM = (rightEncoderCount / ENCODER_PULSES_PER_REV) * (PI * WHEEL_DIAMETER_CM);
+  float rightwheelDistanceTraveled = (rightEncoderCount / ENCODER_PULSES_PER_REV) * (PI * WHEEL_DIAMETER_CM);
+  positionXCM += rightwheelDistanceTraveled * cos(vectorAngle);
+  positionYCM += rightwheelDistanceTraveled * sin(vectorAngle);
+  rightWheelDistanceCM += rightwheelDistanceTraveled;
 
   prevRightA = A;
   prevRightB = B;
@@ -203,6 +239,131 @@ void slightRight() {
   motorRight.writeMicroseconds(MOTOR_STOP_US);
 
   Serial.println("ACTION: SLIGHT RIGHT");
+}
+
+// =====================================================
+// Driving Commands
+// =====================================================
+
+void rotateLeft(int angle){
+  float leftStartDistCM = leftWheelDistanceCM;
+  float rightStartDistCM = rightWheelDistanceCM;
+
+  float positionXStart = positionXCM;
+  float positionYStart = positionYCM;
+
+  float leftEndDistCM = -1*wheelCircumCM * angle / 360;
+  leftEndDistCM = leftEndDistCM + leftWheelDistanceCM;
+  float rightEndDistCM = wheelCircumCM * angle / 360;
+  rightEndDistCM = rightEndDistCM + rightWheelDistanceCM;
+
+  while(leftWheelDistanceCM > leftEndDistCM && rightWheelDistanceCM < rightEndDistCM){
+    pivotLeft();
+  };
+
+  stopMotors();
+
+  leftWheelDistanceCM = leftStartDistCM;
+  rightWheelDistanceCM = rightStartDistCM;
+
+  positionXCM = positionXStart;
+  positionYCM = positionYStart;
+
+  vectorAngle += (PI*angle/180);
+  Serial.printf("Rotated left %d degrees\n", angle);
+}
+
+void rotateRight(int angle){
+  float leftStartDistCM = leftWheelDistanceCM;
+  float rightStartDistCM = rightWheelDistanceCM;
+
+  float positionXStart = positionXCM;
+  float positionYStart = positionYCM;
+
+  float leftEndDistCM = wheelCircumCM * angle / 360;
+  leftEndDistCM = leftEndDistCM + leftWheelDistanceCM;
+  float rightEndDistCM = -1*wheelCircumCM * angle / 360;
+  rightEndDistCM = rightEndDistCM + rightWheelDistanceCM;
+
+  while(leftWheelDistanceCM < leftEndDistCM && rightWheelDistanceCM > rightEndDistCM){
+    pivotRight();
+  };
+
+  stopMotors();
+
+  leftWheelDistanceCM = leftStartDistCM;
+  rightWheelDistanceCM = rightStartDistCM;
+  positionXCM = positionXStart;
+  positionYCM = positionYStart;
+
+  vectorAngle -= (PI*angle/180);
+  Serial.printf("Rotated right %d degrees\n", angle);
+}
+
+void collectDist(uint8_t* blockDir){
+  float distanceFront =
+      measureDistance(sensorFront);
+
+  delay(30);
+
+  float distanceLeft =
+      measureDistance(sensorLeft);
+
+  delay(30);
+
+  float distanceRight =
+      measureDistance(sensorRight);
+
+  delay(30);
+
+  float distanceBack =
+      measureDistance(sensorBack);
+
+  delay(30);
+
+  // -------------------------------------------------
+  // Print sensor data
+  // -------------------------------------------------
+
+  Serial.printf(
+    "Front: %.1f cm | Left: %.1f cm | "
+    "Right: %.1f cm | Back: %.1f cm\n",
+    distanceFront,
+    distanceLeft,
+    distanceRight,
+    distanceBack
+  );
+
+  // -------------------------------------------------
+  // Print encoder counts
+  // -------------------------------------------------
+
+  Serial.printf(
+    "Encoder Right: %ld | Encoder Left: %ld\nLeft Wheel Distance: %.2f cm | Right Wheel Distance: %.2f cm\n",
+    rightEncoderCount,
+    leftEncoderCount,
+    leftWheelDistanceCM,
+    rightWheelDistanceCM
+  );
+
+  // =================================================
+  // AUTONOMOUS OBSTACLE AVOIDANCE
+  // =================================================
+
+  // Obstacle directly in front
+  // =================================================
+  // AUTONOMOUS OBSTACLE AVOIDANCE
+  // =================================================
+
+  uint8_t frontBlocked = uint8_t(distanceFront < FRONT_OBSTACLE_DISTANCE);
+  uint8_t leftBlocked  = uint8_t(distanceLeft  < SIDE_OBSTACLE_DISTANCE);
+  uint8_t rightBlocked = uint8_t(distanceRight < SIDE_OBSTACLE_DISTANCE);
+  uint8_t backBlocked  = uint8_t(distanceBack  < FRONT_OBSTACLE_DISTANCE);
+
+  *blockDir = (frontBlocked << 3) | (leftBlocked << 2) | (rightBlocked << 1) | backBlocked;
+
+  return;
+
 }
 
 // =====================================================
@@ -355,105 +516,425 @@ void loop() {
 // AUTONOMOUS OBSTACLE AVOIDANCE
 // =================================================
 
-// Front + Left + Right blocked
-  if (
-      distanceFront < FRONT_OBSTACLE_DISTANCE &&
-      distanceLeft  < SIDE_OBSTACLE_DISTANCE &&
-      distanceRight < SIDE_OBSTACLE_DISTANCE
-  ) {
+uint8_t frontBlocked = uint8_t(distanceFront < FRONT_OBSTACLE_DISTANCE);
+uint8_t leftBlocked  = uint8_t(distanceLeft  < SIDE_OBSTACLE_DISTANCE);
+uint8_t rightBlocked = uint8_t(distanceRight < SIDE_OBSTACLE_DISTANCE);
+uint8_t backBlocked  = uint8_t(distanceBack  < FRONT_OBSTACLE_DISTANCE);
+float temp_DistanceCM = 0;
 
-    // Back is clear, so reverse
-    if (distanceBack > FRONT_OBSTACLE_DISTANCE) {
+uint8_t blockDir = (frontBlocked << 3) | (leftBlocked << 2) | (rightBlocked << 1) | backBlocked;
 
-      Serial.println(
-        "Front/Left/Right blocked -> moving BACKWARD"
-      );
+switch(robotState){
+  case Free_State:
+    switch(blockDir){
+      case 0000:
+      case 0001:
+        robotState = Free_State;
+        moveForward();
+      break;
 
-      moveBackward();
+      case 0110:
+      case 0111:
+        temp_DistanceCM = (distanceRight < distanceLeft ? distanceRight : distanceLeft);
+        temp_DistanceCM = 2 * cos(Right_Left_Sensor_Angle * PI / 180) * temp_DistanceCM;
+        if(temp_DistanceCM > WHEELBASE_CM){
+          moveForward();
+        } else if (distanceRight < distanceLeft){
+          prevRobotState = robotState;
+          robotState = Wide_Turn_Left;
+          rotateLeft(45);
+          moveForward();
+        } else {
+          prevRobotState = robotState;
+          robotState = Wide_Turn_Right;
+          rotateRight(45);
+          moveForward();
+        }
 
-      delay(500);
+      case 0011:
+      case 0010:
+        prevRobotState = robotState;
+        robotState = Wide_Turn_Left;
+        rotateLeft(45);
+        temp_DistanceCM = (leftWheelDistanceCM + rightWheelDistanceCM)/2;
+        moveForward();
 
-      stopMotors();
+      case 0101:
+      case 0100:
+        prevRobotState = robotState;
+        robotState = Wide_Turn_Right; 
+        rotateRight(45);
+        temp_DistanceCM = (leftWheelDistanceCM + rightWheelDistanceCM)/2;
+        moveForward();
+      break;
 
-      delay(100);
+      case 1011:
+      case 1010:
+        prevRobotState = robotState;
+        robotState = Tight_Turn_Left;
+        rotateLeft(90);
+        temp_DistanceCM = (leftWheelDistanceCM + rightWheelDistanceCM)/2;
+        moveForward();
+      break;
+
+      case 1101:
+      case 1100:
+        prevRobotState = robotState;
+        robotState = Tight_Turn_Right;
+        rotateRight(90);
+        temp_DistanceCM = (leftWheelDistanceCM + rightWheelDistanceCM)/2;
+        moveForward();
+      break;
+
+      case 1110:
+        prevRobotState = robotState;
+        robotState = Reverse;
+        moveBackward();
+      break;
+
+      case 1111:
+        prevRobotState = robotState;
+        robotState = Stop;
+        stopMotors();
+      break;
     }
+  break;
 
-    // Back is also blocked, so do not move
-    else {
-
-      Serial.println(
-        "All directions blocked -> STOP"
-      );
-
+  case Wide_Turn_Left:
+    if(((leftWheelDistanceCM + rightWheelDistanceCM)/2) >= (temp_DistanceCM + 300)) {
       stopMotors();
+      rotateRight(45);
+      collectDist(&blockDir);
+      switch(blockDir){
+        case 0000:
+        case 0001:
+        case 0100:
+        case 0101:
+          prevRobotState = robotState;
+          robotState = Free_State;
+          moveForward();
+        break;
 
-      delay(100);
-    }
-  }
+        case 1010:
+        case 1011:
+          prevRobotState = robotState;
+          robotState = Tight_Turn_Left;
+          temp_DistanceCM = (leftWheelDistanceCM + rightWheelDistanceCM)/2;
+          rotateLeft(90);
+          moveForward();
+        break;
 
-  // Front obstacle
-  else if (distanceFront < FRONT_OBSTACLE_DISTANCE) {
-
-    stopMotors();
-
-    delay(150);
-
-    // Compare left and right distances
-    if (distanceLeft > distanceRight) {
-
-      Serial.println(
-        "Front obstacle -> turning LEFT"
-      );
-
-      pivotLeft();
-
+        default:
+          temp_DistanceCM = (leftWheelDistanceCM + rightWheelDistanceCM)/2;
+          rotateLeft(45);
+          moveForward();
+        break;
+      }
     } else {
+      switch(blockDir){
+        case 1111:
+          prevRobotState = robotState;
+          robotState = Stop;
+          stopMotors();
+        break;
 
-      Serial.println(
-        "Front obstacle -> turning RIGHT"
-      );
+        case 1110:
+          prevRobotState = robotState;
+          robotState = Reverse;
+          moveBackward();
+        break;
 
-      pivotRight();
+        case 1100:
+        case 1101:
+          prevRobotState = robotState;
+          robotState = Free_State;
+          rotateRight(45);
+          moveForward;
+        break;
+
+        case 1011:
+        case 1010:
+          prevRobotState = robotState;
+          robotState = Tight_Turn_Left;
+          rotateLeft(45);
+          moveForward();
+        break;
+
+        default:
+          moveForward();
+        break;
+      }
+    }
+  break;
+
+  case Wide_Turn_Right:
+    if(((leftWheelDistanceCM + rightWheelDistanceCM)/2) >= (temp_DistanceCM + 300)) {
+      stopMotors();
+      rotateLeft(45);
+      collectDist(&blockDir);
+      switch(blockDir){
+        case 0000:
+        case 0001:
+        case 0010:
+        case 0011:
+          prevRobotState = robotState;
+          robotState = Free_State;
+          moveForward();
+        break;
+
+        case 1100:
+        case 1101:
+          prevRobotState = robotState;
+          robotState = Tight_Turn_Right;
+          leftWheelDistanceCM = (leftWheelDistanceCM + rightWheelDistanceCM)/2;
+          rotateRight(90);
+          moveForward();
+        break;
+
+        default:
+          temp_DistanceCM = (leftWheelDistanceCM + rightWheelDistanceCM)/2;
+          rotateRight(45);
+          moveForward();
+        break;
+      }
+    } else {
+      switch(blockDir){
+        case 1111:
+          prevRobotState = robotState;
+          robotState = Stop;
+          stopMotors();
+        break;
+
+        case 1110:
+          prevRobotState = robotState;
+          robotState = Reverse;
+          moveBackward();
+        break;
+
+        case 1010:
+        case 1011:
+          prevRobotState = robotState;
+          robotState = Free_State;
+          rotateLeft(45);
+          moveForward();
+        break;
+
+        case 1101:
+        case 1100:
+          prevRobotState = robotState;
+          robotState = Tight_Turn_Right;
+          rotateRight(45);
+          moveForward();
+        break;
+
+        default:
+          moveForward();
+        break;
+      }
+    }
+  break;
+
+  case Tight_Turn_Left:
+    if(((leftWheelDistanceCM + rightWheelDistanceCM)/2) >= (temp_DistanceCM + 300)){
+      stopMotors();
+      rotateRight(90);
+      collectDist(&blockDir);
+      switch(blockDir){
+        case 0000:
+        case 0001:
+        case 0100:
+        case 0101:
+          prevRobotState = robotState;
+          robotState = Free_State;
+          moveForward();
+        break;
+
+        default:
+          temp_DistanceCM = (leftWheelDistanceCM + rightWheelDistanceCM)/2;
+          rotateLeft(90);
+          moveForward();
+        break;
+      }
+    } else {
+      switch(blockDir){
+        case 1111:
+          prevRobotState = robotState;
+          robotState = Stop;
+          stopMotors();
+        break;
+
+        case 1110:
+          prevRobotState = robotState;
+          robotState = Reverse;
+          moveBackward();
+        break;
+
+        case 1100:
+        case 1101:
+          prevRobotState = robotState;
+          robotState = Wide_Turn_Left;
+          rotateRight(45);
+          moveForward();
+        break;
+        
+        case 1010:
+        case 1011:
+          prevRobotState = robotState;
+          robotState = Tight_Turn_Right;
+          rotateRight(180);
+          moveForward();
+        break;
+        
+        default:
+          moveForward();
+        break;
+      }
+    }
+  break;
+
+  case Tight_Turn_Right:
+    if(((leftWheelDistanceCM + rightWheelDistanceCM)/2) >= (temp_DistanceCM + 300)){
+      stopMotors();
+      rotateLeft(90);
+      collectDist(&blockDir);
+      switch(blockDir){
+        case 0000:
+        case 0001:
+        case 0010:
+        case 0011:
+          prevRobotState = robotState;
+          robotState = Free_State;
+          moveForward();
+        break;
+
+        default:
+          temp_DistanceCM = (leftWheelDistanceCM + rightWheelDistanceCM)/2;
+          rotateRight(90);
+          moveForward();
+        break;
+      }
+    } else {
+      case 1111:
+        prevRobotState = robotState;
+        robotState = Stop;
+        stopMotors();
+      break;
+
+      case 1110:
+        prevRobotState = robotState;
+        robotState = Reverse;
+        moveBackward();
+      break;
+
+      case 1010:
+      case 1011:
+        prevRobotState = robotState;
+        robotState = Wide_Turn_Right;
+        rotateLeft(45);
+        moveForward();
+      break;
+      
+      case 1100:
+      case 1101:
+        prevRobotState = robotState;
+        robotState = Tight_Turn_Left;
+        rotateLeft(180);
+        moveForward();
+      break;
+
+      default:
+        moveForward();
+      break;
+    }
+  break;
+
+  case Reverse:
+    switch(blockDir){
+      case 1111:
+        prevRobotState = robotState;
+        robotState = Stop;
+        stopMotors();
+      break;
+
+      case 1110:
+        moveBackward();
+      break;
+
+      default:
+        switch(prevRobotState){
+          case Free_State:
+            if (distanceRight < distanceLeft){
+              prevRobotState = robotState;
+              robotState = Wide_Turn_Left;
+              rotateLeft(45);
+              moveForward();
+            }else{
+              prevRobotState = robotState;
+              robotState = Wide_Turn_Right;
+              rotateRight(45);
+              moveForward();
+            }
+          break;
+
+          case Wide_Turn_Left:
+            prevRobotState = robotState;
+            robotState = Tight_Turn_Left;
+            rotateLeft(45);
+            moveForward();
+          break;
+
+          case Wide_Turn_Right:
+            prevRobotState = robotState;
+            robotState = Tight_Turn_Right;
+            rotateRight(45);
+            moveForward();
+          break;
+
+          default:
+            prevRobotState = robotState;
+            robotState = Free_State;
+            moveForward();
+        }
+    }
+  break;
+
+  case Stop:
+    switch(blockDir){
+      case 1111:
+      break;
+
+      case 1110:
+      case 1100:
+      case 1010:
+        prevRobotState = robotState;
+        robotState = Reverse;
+        moveBackward();
+      break;
+      
+      case 1001:
+      case 1101:
+        prevRobotState = robotState;
+        robotState = Tight_Turn_Right;
+        rotateRight(90);
+        moveForward();
+      break;
+
+      case 1011:
+        prevRobotState = robotState;
+        robotState = Tight_Turn_Left;
+        rotateLeft(90);
+        moveForward();
+
+      default:
+        prevRobotState = robotState;
+        robotState = Free_State;
+        moveForward();
+      break;
     }
 
-    // Perform a short pivot
-    delay(400);
+  break;
+}
 
-    stopMotors();
-
-    delay(100);
-  }
-
-  // Obstacle on left side
-  else if (distanceLeft < SIDE_OBSTACLE_DISTANCE) {
-
-    Serial.println(
-      "Left obstacle -> steering RIGHT"
-    );
-
-    slightRight();
-  }
-
-  // Obstacle on right side
-  else if (distanceRight < SIDE_OBSTACLE_DISTANCE) {
-
-    Serial.println(
-      "Right obstacle -> steering LEFT"
-    );
-
-    slightLeft();
-  }
-
-  // Clear path
-  else {
-
-    Serial.println(
-      "Path clear -> moving FORWARD"
-    );
-
-    moveForward();
-  }
-
-  delay(50);
+delay(50);
 
 }
