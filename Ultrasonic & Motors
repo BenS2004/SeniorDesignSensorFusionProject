@@ -1,0 +1,322 @@
+#include <Arduino.h>
+#include <ESP32Servo.h>
+#include <math.h>
+#include <stdbool.h>
+#include <stdint.h>
+
+// =====================================================
+// TUNING CONSTANTS (Updated from your latest video)
+// =====================================================
+
+// Separate 45-degree turn times to balance slight motor/caster asymmetry
+const unsigned long TURN_45_LEFT_MS  = 640;
+const unsigned long TURN_45_RIGHT_MS = 605;
+
+// Diagonal step-out duration so the full 45 cm Arlo chassis clears the obstacle
+const unsigned long DETOUR_OUT_MS = 2600;
+
+// Tighter wrap around the back corner while still keeping rear casters clear
+const unsigned long BOX_PASS_CLEARANCE_MS = 1200;
+
+// Ultrasonic thresholds (in cm)
+const float FRONT_OBSTACLE_DISTANCE = 55.0f;
+const float SIDE_OBSTACLE_DISTANCE  = 55.0f;
+const float SIDE_TOO_CLOSE_DISTANCE = 26.0f;
+
+// =====================================================
+// ULTRASONIC SENSOR STRUCTURE & PINS
+// =====================================================
+
+struct UltrasonicSensor {
+  uint8_t trigPin;
+  uint8_t echoPin;
+};
+
+UltrasonicSensor sensorFront = {23, 22};
+UltrasonicSensor sensorLeft  = {18, 19};
+UltrasonicSensor sensorRight = {17, 5};
+UltrasonicSensor sensorBack  = {4, 16};
+
+const float SPEED_OF_SOUND = 0.0343f;
+
+// =====================================================
+// MOTOR DRIVER SIGNAL PINS (HB-25)
+// =====================================================
+
+#define MOTOR_LEFT_SIGNAL   33
+#define MOTOR_RIGHT_SIGNAL  32
+
+Servo motorLeft;
+Servo motorRight;
+
+const int MOTOR_STOP_US    = 1500;
+const int MOTOR_FORWARD_US = 1350;
+const int MOTOR_REVERSE_US = 1650;
+
+// =====================================================
+// DETOUR STATE MACHINE
+// =====================================================
+
+enum NavState {
+  FOLLOW_PATH = 0,
+  DETOUR_OUT,
+  PASS_SIDE,
+  RETURN_LINE,
+  REALIGN
+};
+
+NavState navState = FOLLOW_PATH;
+
+int           detourDir         = 1;      // +1 = Left, -1 = Right
+int           currentAngleDeg   = 0;      // Tracks relative angle (0, +-45, +-90)
+unsigned long stateStartMs      = 0;
+unsigned long boxClearedMs      = 0;
+unsigned long out45TimeMs       = 0;
+unsigned long out90TimeMs       = 0;
+unsigned long returnTargetMs    = 0;
+bool          sawBoxOnSide      = false;
+bool          boxSideCleared    = false;
+int           frontHitCount     = 0;
+int           sideCloseCount    = 0;
+
+// =====================================================
+// ULTRASONIC SENSOR READ
+// =====================================================
+
+float measureDistance(UltrasonicSensor sensor) {
+  digitalWrite(sensor.trigPin, LOW);
+  delayMicroseconds(5);
+  digitalWrite(sensor.trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(sensor.trigPin, LOW);
+
+  unsigned long duration = pulseIn(sensor.echoPin, HIGH, 30000);
+  if (duration == 0) return 400.0f;
+  return (duration * SPEED_OF_SOUND) / 2.0f;
+}
+
+// =====================================================
+// MOTOR & TIMED TURN CONTROL
+// =====================================================
+
+void stopMotors() {
+  motorLeft.writeMicroseconds(MOTOR_STOP_US);
+  motorRight.writeMicroseconds(MOTOR_STOP_US);
+}
+
+void moveForward() {
+  motorLeft.writeMicroseconds(MOTOR_FORWARD_US);
+  motorRight.writeMicroseconds(MOTOR_FORWARD_US);
+}
+
+void pivotLeft() {
+  motorLeft.writeMicroseconds(MOTOR_REVERSE_US);
+  motorRight.writeMicroseconds(MOTOR_FORWARD_US);
+}
+
+void pivotRight() {
+  motorLeft.writeMicroseconds(MOTOR_FORWARD_US);
+  motorRight.writeMicroseconds(MOTOR_REVERSE_US);
+}
+
+// Positive degrees = Left (CCW), Negative degrees = Right (CW)
+void turnRelativeTimed(int deltaDeg) {
+  if (deltaDeg == 0) return;
+
+  unsigned long baseMs = (deltaDeg > 0) ? TURN_45_LEFT_MS : TURN_45_RIGHT_MS;
+  unsigned long durationMs = (unsigned long)(abs(deltaDeg) * (baseMs / 45.0f));
+  Serial.printf(">> Turning %d deg (%lu ms)\n", deltaDeg, durationMs);
+
+  if (deltaDeg > 0) pivotLeft();
+  else              pivotRight();
+
+  delay(durationMs);
+  stopMotors();
+  delay(120);
+
+  currentAngleDeg += deltaDeg;
+}
+
+void turnToRelativeHeading(int targetDeg) {
+  int delta = targetDeg - currentAngleDeg;
+  turnRelativeTimed(delta);
+}
+
+// =====================================================
+// SETUP
+// =====================================================
+
+void setup() {
+  Serial.begin(115200);
+
+  pinMode(sensorFront.trigPin, OUTPUT); pinMode(sensorFront.echoPin, INPUT);
+  pinMode(sensorLeft.trigPin, OUTPUT);  pinMode(sensorLeft.echoPin, INPUT);
+  pinMode(sensorRight.trigPin, OUTPUT); pinMode(sensorRight.echoPin, INPUT);
+  pinMode(sensorBack.trigPin, OUTPUT);  pinMode(sensorBack.echoPin, INPUT);
+
+  digitalWrite(sensorFront.trigPin, LOW);
+  digitalWrite(sensorLeft.trigPin, LOW);
+  digitalWrite(sensorRight.trigPin, LOW);
+  digitalWrite(sensorBack.trigPin, LOW);
+
+  motorLeft.attach(MOTOR_LEFT_SIGNAL, 1000, 2000);
+  motorRight.attach(MOTOR_RIGHT_SIGNAL, 1000, 2000);
+  stopMotors();
+
+  delay(1500);
+  Serial.println("ESP32 ARLO DETOUR-AND-RETURN READY");
+}
+
+// =====================================================
+// MAIN LOOP
+// =====================================================
+
+void loop() {
+  float distFront = measureDistance(sensorFront); delay(25);
+  float distLeft  = measureDistance(sensorLeft);  delay(25);
+  float distRight = measureDistance(sensorRight); delay(25);
+  float distBack  = measureDistance(sensorBack);  delay(25);
+
+  if (distFront < FRONT_OBSTACLE_DISTANCE) frontHitCount++;
+  else                                     frontHitCount = 0;
+
+  bool frontBlocked = (frontHitCount >= 2);
+
+  Serial.printf("St:%d | Ang:%d deg | F:%.1f L:%.1f R:%.1f B:%.1f\n",
+                navState, currentAngleDeg, distFront, distLeft, distRight, distBack);
+
+  switch (navState) {
+
+    // 1. Drive straight along original direction (0 deg)
+    case FOLLOW_PATH: {
+      if (frontBlocked) {
+        stopMotors();
+        frontHitCount  = 0;
+        sideCloseCount = 0;
+        out45TimeMs    = 0;
+        out90TimeMs    = 0;
+
+        detourDir = (distLeft >= distRight) ? 1 : -1;
+        turnToRelativeHeading(45 * detourDir);
+
+        stateStartMs = millis();
+        navState     = DETOUR_OUT;
+        moveForward();
+      } else {
+        moveForward();
+      }
+      break;
+    }
+
+    // 2. Drive diagonally out until clear of the obstacle's front
+    case DETOUR_OUT: {
+      unsigned long elapsed = millis() - stateStartMs;
+
+      if (frontBlocked) {
+        // Still blocked at 45 deg -> turn out to 90 deg
+        stopMotors();
+        frontHitCount = 0;
+        if (abs(currentAngleDeg) < 90) {
+          out45TimeMs += elapsed;
+          turnToRelativeHeading(90 * detourDir);
+        }
+        stateStartMs = millis();
+        moveForward();
+      } else if (elapsed >= DETOUR_OUT_MS) {
+        stopMotors();
+        if (abs(currentAngleDeg) >= 90) out90TimeMs += elapsed;
+        else                            out45TimeMs += elapsed;
+
+        // Turn back parallel to original direction (0 deg)
+        turnToRelativeHeading(0);
+        stateStartMs   = millis();
+        sawBoxOnSide   = false;
+        boxSideCleared = false;
+        sideCloseCount = 0;
+        navState       = PASS_SIDE;
+        moveForward();
+      } else {
+        moveForward();
+      }
+      break;
+    }
+
+    // 3. Drive parallel past the obstacle
+    case PASS_SIDE: {
+      float boxSideDist = (detourDir == 1) ? distRight : distLeft;
+
+      if (boxSideDist < SIDE_TOO_CLOSE_DISTANCE) sideCloseCount++;
+      else                                       sideCloseCount = 0;
+
+      if (frontBlocked || sideCloseCount >= 2) {
+        // Front blocked or getting too close to side -> step out further
+        stopMotors();
+        frontHitCount  = 0;
+        sideCloseCount = 0;
+        turnToRelativeHeading(45 * detourDir);
+        stateStartMs = millis();
+        navState     = DETOUR_OUT;
+        moveForward();
+        break;
+      }
+
+      if (boxSideDist < SIDE_OBSTACLE_DISTANCE) {
+        sawBoxOnSide = true;
+      } else if (sawBoxOnSide && !boxSideCleared) {
+        boxSideCleared = true;
+        boxClearedMs   = millis();
+      }
+
+      bool passedSafely = boxSideCleared && ((millis() - boxClearedMs) >= BOX_PASS_CLEARANCE_MS);
+      bool fallbackPass = !sawBoxOnSide && ((millis() - stateStartMs) >= 2800) && (boxSideDist > SIDE_OBSTACLE_DISTANCE);
+
+      if (passedSafely || fallbackPass) {
+        stopMotors();
+        // Turn 45 deg back toward the original path line
+        turnToRelativeHeading(-45 * detourDir);
+
+        returnTargetMs = out45TimeMs + (unsigned long)(out90TimeMs * 1.414f);
+        if (returnTargetMs < 1000) returnTargetMs = DETOUR_OUT_MS;
+
+        stateStartMs = millis();
+        navState     = RETURN_LINE;
+        moveForward();
+      } else {
+        moveForward();
+      }
+      break;
+    }
+
+    // 4. Drive diagonally back toward the original path line
+    case RETURN_LINE: {
+      if (frontBlocked) {
+        stopMotors();
+        frontHitCount  = 0;
+        sideCloseCount = 0;
+        turnToRelativeHeading(0);
+        stateStartMs   = millis();
+        sawBoxOnSide   = false;
+        boxSideCleared = false;
+        navState       = PASS_SIDE;
+        moveForward();
+        break;
+      }
+
+      if ((millis() - stateStartMs) >= returnTargetMs) {
+        stopMotors();
+        navState = REALIGN;
+      } else {
+        moveForward();
+      }
+      break;
+    }
+
+    // 5. Turn back to original direction (0 deg) and continue straight
+    case REALIGN: {
+      turnToRelativeHeading(0);
+      navState = FOLLOW_PATH;
+      moveForward();
+      break;
+    }
+  }
+}
