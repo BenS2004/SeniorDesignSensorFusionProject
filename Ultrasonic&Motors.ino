@@ -35,23 +35,31 @@ Servo motorRight;
 
 // HB-25 PWM 
 const int MOTOR_STOP_US    = 1500;
-// 30% speed in each direction (150 us from stop). These stay constant.
+// ~30% speed in each direction (about 150 us from stop).
 // With the way the motors are wired, pulses below MOTOR_STOP_US drive forward.
-const int MOTOR_FORWARD_US = 1350;
-const int MOTOR_REVERSE_US = 1650;
+//
+// PER-WHEEL TRIM: the two motors don't run at exactly the same speed for the
+// same pulse. The left wheel runs faster, so its values sit closer to 1500.
+// Tune in ~5 us steps until the robot drives straight on the floor:
+//   - drifts RIGHT (left wheel faster) -> move LEFT values closer to 1500
+//   - drifts LEFT (right wheel faster) -> move RIGHT values closer to 1500
+const int MOTOR_LEFT_FORWARD_US  = 1352;
+const int MOTOR_RIGHT_FORWARD_US = 1350;
+const int MOTOR_LEFT_REVERSE_US  = 1640;
+const int MOTOR_RIGHT_REVERSE_US = 1650;
 
 // =====================================================
 // ENCODER PINS
 // =====================================================
 // RIGHT [A 25, B 26] , LEFT [A 27, B 14]
 // Right encoder
-#define ENC_RIGHT_A 25
-#define ENC_RIGHT_B 26
+#define ENC_RIGHT_A 27
+#define ENC_RIGHT_B 14
 
 // Left encoder
 
-#define ENC_LEFT_A 27
-#define ENC_LEFT_B 14
+#define ENC_LEFT_A 25
+#define ENC_LEFT_B 26
 
 
 // =====================================================
@@ -93,8 +101,8 @@ const float wheelCircumCM = PI*WHEELBASE_CM;
 // OBSTACLE SETTINGS
 // =====================================================
 
-const float FRONT_OBSTACLE_DISTANCE = 40.0;
-const float SIDE_OBSTACLE_DISTANCE  = 25.0;
+const float FRONT_OBSTACLE_DISTANCE = 35.0;
+const float SIDE_OBSTACLE_DISTANCE  = 15.0;
 
 // =====================================================
 //Robot State
@@ -131,10 +139,6 @@ void IRAM_ATTR rightEncoderISR() {
     rightDirection = (A == B) ? -1 : 1;
     rightEncoderCount += rightDirection;
   }
-  float rightwheelDistanceTraveled = (rightEncoderCount / ENCODER_PULSES_PER_REV) * (PI * WHEEL_DIAMETER_CM);
-  positionXCM += rightwheelDistanceTraveled * cos(vectorAngle);
-  positionYCM += rightwheelDistanceTraveled * sin(vectorAngle);
-  rightWheelDistanceCM += rightwheelDistanceTraveled;
 
   prevRightA = A;
   prevRightB = B;
@@ -159,6 +163,18 @@ void IRAM_ATTR leftEncoderISR() {
 
 float encoderCountToCM(long count) {
   return (count / ENCODER_PULSES_PER_REV) * (PI * WHEEL_DIAMETER_CM);
+}
+
+// Refresh the wheel distances from the encoder counts. Runs outside the ISR,
+// so the float math here is safe.
+void updateWheelDistances() {
+  noInterrupts();
+  long r = rightEncoderCount;
+  long l = leftEncoderCount;
+  interrupts();
+
+  rightWheelDistanceCM = encoderCountToCM(r);
+  leftWheelDistanceCM  = encoderCountToCM(l);
 }
 
 // =====================================================
@@ -201,8 +217,8 @@ void stopMotors() {
 
 void moveForward() {
 
-  motorLeft.writeMicroseconds(MOTOR_FORWARD_US);
-  motorRight.writeMicroseconds(MOTOR_FORWARD_US);
+  motorLeft.writeMicroseconds(MOTOR_LEFT_FORWARD_US);
+  motorRight.writeMicroseconds(MOTOR_RIGHT_FORWARD_US);
 
   Serial.println("ACTION: FORWARD");
 }
@@ -210,8 +226,8 @@ void moveForward() {
 
 void moveBackward() {
 
-  motorLeft.writeMicroseconds(MOTOR_REVERSE_US);
-  motorRight.writeMicroseconds(MOTOR_REVERSE_US);
+  motorLeft.writeMicroseconds(MOTOR_LEFT_REVERSE_US);
+  motorRight.writeMicroseconds(MOTOR_RIGHT_REVERSE_US);
 
   Serial.println("ACTION: BACKWARD");
 }
@@ -219,8 +235,8 @@ void moveBackward() {
 
 void pivotLeft() {
 
-  motorLeft.writeMicroseconds(MOTOR_REVERSE_US);
-  motorRight.writeMicroseconds(MOTOR_FORWARD_US);
+  motorLeft.writeMicroseconds(MOTOR_LEFT_REVERSE_US);
+  motorRight.writeMicroseconds(MOTOR_RIGHT_FORWARD_US);
 
   Serial.println("ACTION: PIVOT LEFT");
 }
@@ -228,8 +244,8 @@ void pivotLeft() {
 
 void pivotRight() {
 
-  motorLeft.writeMicroseconds(MOTOR_FORWARD_US);
-  motorRight.writeMicroseconds(MOTOR_REVERSE_US);
+  motorLeft.writeMicroseconds(MOTOR_LEFT_FORWARD_US);
+  motorRight.writeMicroseconds(MOTOR_RIGHT_REVERSE_US);
 
   Serial.println("ACTION: PIVOT RIGHT");
 }
@@ -238,7 +254,7 @@ void pivotRight() {
 void slightLeft() {
 
   motorLeft.writeMicroseconds(MOTOR_STOP_US);
-  motorRight.writeMicroseconds(MOTOR_FORWARD_US);
+  motorRight.writeMicroseconds(MOTOR_RIGHT_FORWARD_US);
 
   Serial.println("ACTION: SLIGHT LEFT");
 }
@@ -246,7 +262,7 @@ void slightLeft() {
 
 void slightRight() {
 
-  motorLeft.writeMicroseconds(MOTOR_FORWARD_US);
+  motorLeft.writeMicroseconds(MOTOR_LEFT_FORWARD_US);
   motorRight.writeMicroseconds(MOTOR_STOP_US);
 
   Serial.println("ACTION: SLIGHT RIGHT");
@@ -268,9 +284,10 @@ void rotateLeft(int angle){
   float rightEndDistCM = wheelCircumCM * angle / 360;
   rightEndDistCM = rightEndDistCM + rightWheelDistanceCM;
 
+  pivotLeft();
   while(leftWheelDistanceCM > leftEndDistCM && rightWheelDistanceCM < rightEndDistCM){
-    pivotLeft();
-  };
+    updateWheelDistances();
+  }
 
   stopMotors();
 
@@ -296,9 +313,10 @@ void rotateRight(int angle){
   float rightEndDistCM = -1*wheelCircumCM * angle / 360;
   rightEndDistCM = rightEndDistCM + rightWheelDistanceCM;
 
+  pivotRight();
   while(leftWheelDistanceCM < leftEndDistCM && rightWheelDistanceCM > rightEndDistCM){
-    pivotRight();
-  };
+    updateWheelDistances();
+  }
 
   stopMotors();
 
@@ -510,13 +528,15 @@ void loop() {
   // Print encoder counts
   // -------------------------------------------------
 
+  updateWheelDistances();
+
   long rightCount = rightEncoderCount;
   long leftCount  = leftEncoderCount;
 
   Serial.printf(
-    "Encoder Right: %ld | Encoder Left: %ld\nLeft Wheel Distance: %.2f cm | Right Wheel Distance: %.2f cm\n",
-    rightCount,
+    "Encoder Left: %ld | Encoder Right: %ld\nLeft Wheel Distance: %.2f cm | Right Wheel Distance: %.2f cm\n",
     leftCount,
+    rightCount,
     encoderCountToCM(leftCount),
     encoderCountToCM(rightCount)
   );
@@ -534,21 +554,23 @@ uint8_t frontBlocked = uint8_t(distanceFront < FRONT_OBSTACLE_DISTANCE);
 uint8_t leftBlocked  = uint8_t(distanceLeft  < SIDE_OBSTACLE_DISTANCE);
 uint8_t rightBlocked = uint8_t(distanceRight < SIDE_OBSTACLE_DISTANCE);
 uint8_t backBlocked  = uint8_t(distanceBack  < FRONT_OBSTACLE_DISTANCE);
-float temp_DistanceCM = 0;
+// static: keeps the distance recorded at the start of a turn across loop()
+// calls, so the "drive 300 cm then turn back" check works.
+static float temp_DistanceCM = 0;
 
 uint8_t blockDir = (frontBlocked << 3) | (leftBlocked << 2) | (rightBlocked << 1) | backBlocked;
 
 switch(robotState){
   case Free_State:
     switch(blockDir){
-      case 0000:
-      case 0001:
+      case 0b0000:
+      case 0b0001:
         robotState = Free_State;
         moveForward();
       break;
 
-      case 0110:
-      case 0111:
+      case 0b0110:
+      case 0b0111:
         temp_DistanceCM = (distanceRight < distanceLeft ? distanceRight : distanceLeft);
         temp_DistanceCM = 2 * cos(Right_Left_Sensor_Angle * PI / 180) * temp_DistanceCM;
         if(temp_DistanceCM > WHEELBASE_CM){
@@ -564,17 +586,19 @@ switch(robotState){
           rotateRight(45);
           moveForward();
         }
+      break;
 
-      case 0011:
-      case 0010:
+      case 0b0011:
+      case 0b0010:
         prevRobotState = robotState;
         robotState = Wide_Turn_Left;
         rotateLeft(45);
         temp_DistanceCM = (leftWheelDistanceCM + rightWheelDistanceCM)/2;
         moveForward();
+      break;
 
-      case 0101:
-      case 0100:
+      case 0b0101:
+      case 0b0100:
         prevRobotState = robotState;
         robotState = Wide_Turn_Right; 
         rotateRight(45);
@@ -582,8 +606,8 @@ switch(robotState){
         moveForward();
       break;
 
-      case 1011:
-      case 1010:
+      case 0b1011:
+      case 0b1010:
         prevRobotState = robotState;
         robotState = Tight_Turn_Left;
         rotateLeft(90);
@@ -591,8 +615,8 @@ switch(robotState){
         moveForward();
       break;
 
-      case 1101:
-      case 1100:
+      case 0b1101:
+      case 0b1100:
         prevRobotState = robotState;
         robotState = Tight_Turn_Right;
         rotateRight(90);
@@ -600,13 +624,13 @@ switch(robotState){
         moveForward();
       break;
 
-      case 1110:
+      case 0b1110:
         prevRobotState = robotState;
         robotState = Reverse;
         moveBackward();
       break;
 
-      case 1111:
+      case 0b1111:
         prevRobotState = robotState;
         robotState = Stop;
         stopMotors();
@@ -620,17 +644,17 @@ switch(robotState){
       rotateRight(45);
       collectDist(&blockDir);
       switch(blockDir){
-        case 0000:
-        case 0001:
-        case 0100:
-        case 0101:
+        case 0b0000:
+        case 0b0001:
+        case 0b0100:
+        case 0b0101:
           prevRobotState = robotState;
           robotState = Free_State;
           moveForward();
         break;
 
-        case 1010:
-        case 1011:
+        case 0b1010:
+        case 0b1011:
           prevRobotState = robotState;
           robotState = Tight_Turn_Left;
           temp_DistanceCM = (leftWheelDistanceCM + rightWheelDistanceCM)/2;
@@ -646,28 +670,28 @@ switch(robotState){
       }
     } else {
       switch(blockDir){
-        case 1111:
+        case 0b1111:
           prevRobotState = robotState;
           robotState = Stop;
           stopMotors();
         break;
 
-        case 1110:
+        case 0b1110:
           prevRobotState = robotState;
           robotState = Reverse;
           moveBackward();
         break;
 
-        case 1100:
-        case 1101:
+        case 0b1100:
+        case 0b1101:
           prevRobotState = robotState;
           robotState = Free_State;
           rotateRight(45);
-          moveForward;
+          moveForward();
         break;
 
-        case 1011:
-        case 1010:
+        case 0b1011:
+        case 0b1010:
           prevRobotState = robotState;
           robotState = Tight_Turn_Left;
           rotateLeft(45);
@@ -687,20 +711,20 @@ switch(robotState){
       rotateLeft(45);
       collectDist(&blockDir);
       switch(blockDir){
-        case 0000:
-        case 0001:
-        case 0010:
-        case 0011:
+        case 0b0000:
+        case 0b0001:
+        case 0b0010:
+        case 0b0011:
           prevRobotState = robotState;
           robotState = Free_State;
           moveForward();
         break;
 
-        case 1100:
-        case 1101:
+        case 0b1100:
+        case 0b1101:
           prevRobotState = robotState;
           robotState = Tight_Turn_Right;
-          leftWheelDistanceCM = (leftWheelDistanceCM + rightWheelDistanceCM)/2;
+          temp_DistanceCM = (leftWheelDistanceCM + rightWheelDistanceCM)/2;
           rotateRight(90);
           moveForward();
         break;
@@ -713,28 +737,28 @@ switch(robotState){
       }
     } else {
       switch(blockDir){
-        case 1111:
+        case 0b1111:
           prevRobotState = robotState;
           robotState = Stop;
           stopMotors();
         break;
 
-        case 1110:
+        case 0b1110:
           prevRobotState = robotState;
           robotState = Reverse;
           moveBackward();
         break;
 
-        case 1010:
-        case 1011:
+        case 0b1010:
+        case 0b1011:
           prevRobotState = robotState;
           robotState = Free_State;
           rotateLeft(45);
           moveForward();
         break;
 
-        case 1101:
-        case 1100:
+        case 0b1101:
+        case 0b1100:
           prevRobotState = robotState;
           robotState = Tight_Turn_Right;
           rotateRight(45);
@@ -754,10 +778,10 @@ switch(robotState){
       rotateRight(90);
       collectDist(&blockDir);
       switch(blockDir){
-        case 0000:
-        case 0001:
-        case 0100:
-        case 0101:
+        case 0b0000:
+        case 0b0001:
+        case 0b0100:
+        case 0b0101:
           prevRobotState = robotState;
           robotState = Free_State;
           moveForward();
@@ -771,28 +795,28 @@ switch(robotState){
       }
     } else {
       switch(blockDir){
-        case 1111:
+        case 0b1111:
           prevRobotState = robotState;
           robotState = Stop;
           stopMotors();
         break;
 
-        case 1110:
+        case 0b1110:
           prevRobotState = robotState;
           robotState = Reverse;
           moveBackward();
         break;
 
-        case 1100:
-        case 1101:
+        case 0b1100:
+        case 0b1101:
           prevRobotState = robotState;
           robotState = Wide_Turn_Left;
           rotateRight(45);
           moveForward();
         break;
         
-        case 1010:
-        case 1011:
+        case 0b1010:
+        case 0b1011:
           prevRobotState = robotState;
           robotState = Tight_Turn_Right;
           rotateRight(180);
@@ -812,10 +836,10 @@ switch(robotState){
       rotateLeft(90);
       collectDist(&blockDir);
       switch(blockDir){
-        case 0000:
-        case 0001:
-        case 0010:
-        case 0011:
+        case 0b0000:
+        case 0b0001:
+        case 0b0010:
+        case 0b0011:
           prevRobotState = robotState;
           robotState = Free_State;
           moveForward();
@@ -828,49 +852,51 @@ switch(robotState){
         break;
       }
     } else {
-      case 1111:
-        prevRobotState = robotState;
-        robotState = Stop;
-        stopMotors();
-      break;
+      switch(blockDir){
+        case 0b1111:
+          prevRobotState = robotState;
+          robotState = Stop;
+          stopMotors();
+        break;
 
-      case 1110:
-        prevRobotState = robotState;
-        robotState = Reverse;
-        moveBackward();
-      break;
+        case 0b1110:
+          prevRobotState = robotState;
+          robotState = Reverse;
+          moveBackward();
+        break;
 
-      case 1010:
-      case 1011:
-        prevRobotState = robotState;
-        robotState = Wide_Turn_Right;
-        rotateLeft(45);
-        moveForward();
-      break;
-      
-      case 1100:
-      case 1101:
-        prevRobotState = robotState;
-        robotState = Tight_Turn_Left;
-        rotateLeft(180);
-        moveForward();
-      break;
+        case 0b1010:
+        case 0b1011:
+          prevRobotState = robotState;
+          robotState = Wide_Turn_Right;
+          rotateLeft(45);
+          moveForward();
+        break;
 
-      default:
-        moveForward();
-      break;
+        case 0b1100:
+        case 0b1101:
+          prevRobotState = robotState;
+          robotState = Tight_Turn_Left;
+          rotateLeft(180);
+          moveForward();
+        break;
+
+        default:
+          moveForward();
+        break;
+      }
     }
   break;
 
   case Reverse:
     switch(blockDir){
-      case 1111:
+      case 0b1111:
         prevRobotState = robotState;
         robotState = Stop;
         stopMotors();
       break;
 
-      case 1110:
+      case 0b1110:
         moveBackward();
       break;
 
@@ -914,30 +940,31 @@ switch(robotState){
 
   case Stop:
     switch(blockDir){
-      case 1111:
+      case 0b1111:
       break;
 
-      case 1110:
-      case 1100:
-      case 1010:
+      case 0b1110:
+      case 0b1100:
+      case 0b1010:
         prevRobotState = robotState;
         robotState = Reverse;
         moveBackward();
       break;
       
-      case 1001:
-      case 1101:
+      case 0b1001:
+      case 0b1101:
         prevRobotState = robotState;
         robotState = Tight_Turn_Right;
         rotateRight(90);
         moveForward();
       break;
 
-      case 1011:
+      case 0b1011:
         prevRobotState = robotState;
         robotState = Tight_Turn_Left;
         rotateLeft(90);
         moveForward();
+      break;
 
       default:
         prevRobotState = robotState;
